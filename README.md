@@ -1,6 +1,13 @@
 # Traffic Sign Recognition
 
 [proposal docs link here](https://docs.google.com/document/d/1LFfMRnj8OV4WV3CxFSy26Opk5PrQXEab/edit?usp=sharing&ouid=117888008832896648018&rtpof=true&sd=true)
+[project docs link here](https://docs.google.com/document/d/145yTLLexleQkfP3VFrixo-X2_qqgzIK8/edit?usp=sharing&ouid=117888008832896648018&rtpof=true&sd=true)
+
+Member
+1: Khor Yu Zhuang
+2: Tan Yu Keat
+3: Kang Kah Yi
+4: Leow Wei Ru
 
 | Section | Task Distribution |
 | :--- | :--- |
