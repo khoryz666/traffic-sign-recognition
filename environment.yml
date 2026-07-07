@@ -1,0 +1,12 @@
+name: tsr-proposal-env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.13
+  - ipykernel          # Required for Jupyter to detect this environment
+  - opencv             # Maps to -> import cv2
+  - numpy              # Maps to -> import numpy
+  - matplotlib         # Maps to -> import matplotlib
+  - scikit-learn       # Maps to -> import sklearn
+  - pandas
