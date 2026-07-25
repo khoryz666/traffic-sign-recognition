@@ -1,5 +1,8 @@
 # Jupyter Notebook (already covered by root .gitignore, but placed here for completeness)
 .ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*-checkpoint.*
+**/*-checkpoint.*
 
 # Uncomment the line below if you want to ignore the traffic sign images dataset from version control
 # Inputs/
