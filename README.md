@@ -2,6 +2,7 @@
 
 - [Proposal Docs](https://docs.google.com/document/d/1LFfMRnj8OV4WV3CxFSy26Opk5PrQXEab/edit?usp=sharing&ouid=117888008832896648018&rtpof=true&sd=true)
 - [Project Docs](https://docs.google.com/document/d/145yTLLexleQkfP3VFrixo-X2_qqgzIK8/edit?usp=sharing&ouid=117888008832896648018&rtpof=true&sd=true)
+- [Presentation Slides](https://canva.link/9uf7j2t9e34ct3x)
 
 ## Team Members
 
