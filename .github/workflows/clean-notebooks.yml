@@ -1,0 +1,70 @@
+name: Auto-Clean Jupyter Notebooks & Checkpoints
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  contents: write
+
+jobs:
+  auto-clean:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Untrack accidentally committed checkpoint files
+        run: |
+          echo "Checking for accidentally tracked Jupyter checkpoints..."
+          CHECKPOINTS=$(git ls-files | grep -iE "checkpoint|\.ipynb_checkpoints" || true)
+          if [ -n "$CHECKPOINTS" ]; then
+            echo "Untracking checkpoint files from Git..."
+            git rm -r --cached "*checkpoint*" || true
+          fi
+
+      - name: Strip notebook execution outputs and counts
+        run: |
+          echo "Stripping embedded base64 outputs from Jupyter Notebooks..."
+          python -c "
+          import json, os
+          for root, dirs, files in os.walk('.'):
+              if '.ipynb_checkpoints' in dirs:
+                  dirs.remove('.ipynb_checkpoints')
+              for file in files:
+                  if file.endswith('.ipynb'):
+                      path = os.path.join(root, file)
+                      try:
+                          with open(path, 'r', encoding='utf-8') as f:
+                              nb = json.load(f)
+                          modified = False
+                          for cell in nb.get('cells', []):
+                              if cell.get('cell_type') == 'code':
+                                  if cell.get('outputs') or cell.get('execution_count') is not None:
+                                      cell['outputs'] = []
+                                      cell['execution_count'] = None
+                                      modified = True
+                          if modified:
+                              with open(path, 'w', encoding='utf-8') as f:
+                                  json.dump(nb, f, indent=1)
+                              print(f'Cleaned outputs for: {path}')
+                      except Exception as e:
+                          print(f'Warning: Could not parse {path}: {e}')
+          "
+
+      - name: Auto-commit and push cleaned notebooks
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ci): auto-clean jupyter notebook outputs and untrack checkpoints [skip ci]"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
