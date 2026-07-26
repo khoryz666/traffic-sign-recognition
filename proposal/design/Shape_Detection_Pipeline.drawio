@@ -1,0 +1,108 @@
+<mxfile host="Electron" modified="2026-07-26T00:00:00.000Z" agent="Antigravity IDE" version="21.0.0" type="device">
+  <diagram id="shape_det_pipeline" name="Shape Detection Pipeline">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Nodes -->
+        <mxCell id="2" value="&lt;b&gt;1. Image Input&lt;/b&gt;&lt;br&gt;Load Traffic Sign Image from Dataset" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="280" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="3" value="&lt;b&gt;2. Preprocessing&lt;/b&gt;&lt;br&gt;BGR &amp;rarr; RGB &amp;rarr; Gaussian Blur (5x5) &amp;rarr; HSV Color Space" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="130" width="280" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="4" value="&lt;b&gt;3. Multi-Color HSV Segmentation&lt;/b&gt;&lt;br&gt;Combine Red, Blue &amp;amp; Yellow HSV Threshold Masks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="220" width="320" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="5" value="&lt;b&gt;4. Contour Extraction &amp;amp; Scoring&lt;/b&gt;&lt;br&gt;Filter Area &amp;ge; 1000 &amp;rarr; Select Best Contour by Geometric Score&lt;br&gt;&lt;i&gt;Score = Area &amp;times; Circularity &amp;times; Solidity&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="310" width="380" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="6" value="&lt;b&gt;5. Polygon Approximation &amp;amp; Features&lt;/b&gt;&lt;br&gt;Convex Hull &amp;rarr; Douglas-Peucker Approx (cv2.approxPolyDP)&lt;br&gt;Extract Vertices Count, Circularity &amp;amp; Aspect Ratio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="410" width="400" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="7" value="&lt;b&gt;6. Shape Classification Logic&lt;/b&gt;&lt;br&gt;Decision Rules based on Vertices &amp;amp; Circularity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontFamily=Helvetica;fontSize=13;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="510" width="280" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Shape branches -->
+        <mxCell id="81" value="&lt;b&gt;Triangle&lt;/b&gt;&lt;br&gt;(Vertices == 3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="82" value="&lt;b&gt;Square / Rect&lt;/b&gt;&lt;br&gt;(Vertices == 4)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="83" value="&lt;b&gt;Circle&lt;/b&gt;&lt;br&gt;(Circularity &amp;ge; 0.82)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="610" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="84" value="&lt;b&gt;Octagon&lt;/b&gt;&lt;br&gt;(Vertices 7 - 9)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="85" value="&lt;b&gt;Unknown&lt;/b&gt;&lt;br&gt;(Other shapes)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Helvetica;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="9" value="&lt;b&gt;7. Output Visualization&lt;/b&gt;&lt;br&gt;Annotate Green Contour &amp;amp; Blue Shape Label on RGB Image" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontFamily=Helvetica;fontSize=13;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="700" width="320" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="103" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="105" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Branch Edges -->
+        <mxCell id="106" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="7" target="81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="107" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="7" target="82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="108" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="7" target="83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="109" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="7" target="84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="110" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="7" target="85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Re-converge edges -->
+        <mxCell id="111" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="81" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="112" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="82" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="113" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="83" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="114" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="84" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="115" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" edge="1" parent="1" source="85" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
