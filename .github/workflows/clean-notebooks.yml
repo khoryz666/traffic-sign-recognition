@@ -1,10 +1,8 @@
 name: Auto-Clean Jupyter Notebooks & Checkpoints
 
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+  schedule:
+    - cron: '0 0 */2 * *'   # Runs every 2 days at midnight UTC
 
 permissions:
   contents: write
