@@ -16,6 +16,10 @@ env/
 venv/
 ENV/
 
+# Dataset and artifacts
+data/
+*.npz
+
 # OS generated files
 .DS_Store
 .DS_Store?
