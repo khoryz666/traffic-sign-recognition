@@ -1,0 +1,8 @@
+Feature set,Feature dimensions,Test accuracy (%),Train time (s)
+hog_o9_c4_b2_s64,8100,92.89,1308.6
+hog_o9_c4_b2_sqrt,1764,89.14,195.6
+hog_o9_c4_b2_nosqrt,1764,89.14,175.6
+hog_o12_c4_b2_sqrt,2352,89.07,227.5
+hog_o9_c4_b1_sqrt,576,84.07,55.5
+hog_o9_c8_b2_sqrt,324,79.11,42.2
+raw_pixels_gray,1024,74.38,3349.5
