@@ -1,9 +1,10 @@
 """Dataset annotation loading, cleaning and train/held-out splitting.
 
 Replaces the per-notebook copies of this logic (previously pasted into both
-02-feature-extraction notebooks) and replaces
-00-deps-and-dataset/02_remove_input_duplicates_and_sync_annotations.ipynb's
-file-moving approach: the 84 held-out assignment-test images are never
+02-feature-extraction notebooks) and replaces the old
+02_remove_input_duplicates_and_sync_annotations.ipynb's (now
+00-dataset/02_clean_annotations.ipynb) file-moving approach: the 84 held-out
+assignment-test images are never
 relocated out of data/chinese_traffic_signs/ - they're excluded from the
 training pool purely by filtering annotations, via split_held_out().
 """

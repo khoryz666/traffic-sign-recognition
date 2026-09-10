@@ -1,6 +1,6 @@
 """Central path constants for the pipeline.
 
-Every notebook lives one directory below the repo root (00-deps-and-dataset/,
+Every notebook lives one directory below the repo root (00-dataset/,
 01-roi-segmentation/, 02-feature-extraction/, 03-classifier/), so these
 relative paths resolve the same way regardless of which stage imports them,
 as long as the notebook's working directory is its own folder (Jupyter's
