@@ -23,12 +23,8 @@ data/*
 *.npz
 *.joblib
 
-# Large notebooks with embedded outputs (kept locally, not tracked)
-02-feature-extraction/03_hog_features_chinese.ipynb
-02-feature-extraction/04_hsv_color_histogram_chinese.ipynb
-03-classifier/05_knn_classifier with girdsearch.ipynb
-03-classifier/06_logistic_regression_classifier.ipynb
-03-classifier/07_svm_classifier.ipynb
+# Notebooks carry embedded outputs and get large fast - kept locally, not tracked
+*.ipynb
 
 # OS generated files
 .DS_Store
