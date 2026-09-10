@@ -19,6 +19,16 @@
             python313Packages.virtualenv
           ];
 
+          # Manylinux wheels (numpy, opencv-python, torch, ...) are compiled
+          # against system shared libraries that a Nix shell doesn't expose
+          # by default (there's no FHS /usr/lib). Point the loader at Nix's
+          # own copies so those compiled extensions can find them at runtime.
+          LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+            pkgs.stdenv.cc.cc
+            pkgs.zlib
+            pkgs.libGL
+          ];
+
           # Nix provides the interpreter; pip-installed deps still live in a
           # project-local venv so `pip install` works as usual.
           shellHook = ''
@@ -26,6 +36,11 @@
               python -m venv .venv
             fi
             source .venv/bin/activate
+
+            if [ requirements.txt -nt .venv/.deps-installed ]; then
+              pip install -q -r requirements.txt
+              touch .venv/.deps-installed
+            fi
           '';
         };
       });
