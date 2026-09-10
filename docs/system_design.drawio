@@ -1,0 +1,387 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="diagram_1" name="System Design">
+    <mxGraphModel dx="1447" dy="687" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="phase_start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;arcSize=50;" value="Start" vertex="1">
+          <mxGeometry height="40" width="220" x="300" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="phase_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;Phase 1 — Data Collection&lt;/b&gt;&lt;br&gt;Download Chinese Traffic Signs Dataset (Kaggle)" vertex="1">
+          <mxGeometry height="60" width="220" x="300" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="phase_2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;Phase 2 — Feature Extraction&lt;/b&gt;&lt;br&gt;ROI Segmentation, then extract HOG &amp;amp; HSV Histogram feature vectors" vertex="1">
+          <mxGeometry height="60" width="220" x="300" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="phase_3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Phase 3 — Model Development&lt;/b&gt;&lt;br&gt;Train Machine Learning Models" vertex="1">
+          <mxGeometry height="60" width="220" x="300" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="phase_4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Phase 4 — Model Evaluation&lt;/b&gt;&lt;br&gt;Accuracy, Precision, Recall, F1-Score" vertex="1">
+          <mxGeometry height="60" width="220" x="300" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="phase_5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;b&gt;Phase 5 — Key Findings&lt;/b&gt;&lt;br&gt;Conclusion, Limitations &amp;amp; Future Work" vertex="1">
+          <mxGeometry height="60" width="220" x="300" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="phase_end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;arcSize=50;" value="End" vertex="1">
+          <mxGeometry height="40" width="220" x="300" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="in_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Input&lt;br&gt;Kaggle (kagglehub)" vertex="1">
+          <mxGeometry height="40" width="140" x="120" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="in_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Input&lt;br&gt;Raw Chinese Traffic Signs Dataset" vertex="1">
+          <mxGeometry height="40" width="140" x="120" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="in_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Input&lt;br&gt;HOG &amp;amp; HSV Feature Vectors" vertex="1">
+          <mxGeometry height="40" width="140" x="120" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="in_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Input&lt;br&gt;Test Set &amp;amp; Trained Models" vertex="1">
+          <mxGeometry height="40" width="140" x="120" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="in_5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Input&lt;br&gt;Evaluation Metrics" vertex="1">
+          <mxGeometry height="40" width="140" x="120" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="out_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Output&lt;br&gt;Raw Chinese Traffic Sign Images" vertex="1">
+          <mxGeometry height="40" width="140" x="560" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="out_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Output&lt;br&gt;Extracted Features (.npz)" vertex="1">
+          <mxGeometry height="40" width="140" x="560" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="out_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Output&lt;br&gt;Trained Models" vertex="1">
+          <mxGeometry height="40" width="140" x="560" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="out_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Output&lt;br&gt;Performance Scores" vertex="1">
+          <mxGeometry height="40" width="140" x="560" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="out_5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="Output&lt;br&gt;Final Project Report" vertex="1">
+          <mxGeometry height="40" width="140" x="560" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_start_1" edge="1" parent="1" source="phase_start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="phase_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1_2" edge="1" parent="1" source="phase_1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="phase_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_2_3" edge="1" parent="1" source="phase_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="phase_3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_3_4" edge="1" parent="1" source="phase_3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="phase_4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_4_5" edge="1" parent="1" source="phase_4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="phase_5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_5_end" edge="1" parent="1" source="phase_5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="phase_end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_in_1" edge="1" parent="1" source="in_1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="phase_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_in_2" edge="1" parent="1" source="in_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="phase_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_in_3" edge="1" parent="1" source="in_3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="phase_3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_in_4" edge="1" parent="1" source="in_4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="phase_4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_in_5" edge="1" parent="1" source="in_5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="phase_5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_out_1" edge="1" parent="1" source="phase_1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="out_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_out_2" edge="1" parent="1" source="phase_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="out_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_out_3" edge="1" parent="1" source="phase_3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="out_3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_out_4" edge="1" parent="1" source="phase_4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="out_4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_out_5" edge="1" parent="1" source="phase_5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f5f5f5;strokeColor=#666666;" target="out_5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="shape_det_pipeline" name="Shape Detection Pipeline">
+    <mxGraphModel dx="1665" dy="875" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="&lt;b&gt;1. Image Input&lt;/b&gt;&lt;br&gt;Load Traffic Sign Image from Dataset" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=13;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="40" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="&lt;b&gt;2. Preprocessing&lt;/b&gt;&lt;br&gt;BGR → RGB → Gaussian Blur → HSV" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Helvetica;fontSize=13;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="130" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="3. Color-Specific HSV Segmentation&amp;nbsp;&lt;div&gt;(Apply Red / Blue / Yellow segmentation based on dataset category)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="220" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="&lt;b&gt;4. Contour Extraction &amp;amp; Scoring&lt;/b&gt;&lt;br&gt;Filter Area &amp;ge; 1000 &amp;rarr; Select Best Contour by Geometric Score&lt;br&gt;&lt;i&gt;Score = Area &amp;times; Circularity &amp;times; Solidity&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Helvetica;fontSize=13;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="310" width="380" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="&lt;b&gt;5. Polygon Approximation &amp;amp; Feature Extraction&lt;/b&gt;&lt;br&gt;(Douglas-Peucker,&lt;br/&gt;epsilon = 0.018 × perimeter)&amp;nbsp;&lt;div&gt;Extract:&amp;nbsp; Area, Perimeter, Circularity, Vertices, Aspect Ratio&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Helvetica;fontSize=13;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="220" y="410" width="400" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="&lt;b&gt;6. Rule-Based Shape Classification&lt;/b&gt;&lt;br&gt;(Vertices + Circularity + Aspect Ratio)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontFamily=Helvetica;fontSize=13;fontStyle=1;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="510" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="81" value="&lt;b&gt;Triangle&lt;/b&gt;&lt;br&gt;(Vertices == 3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=12;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="82" value="&lt;b&gt;Square / Rect&lt;/b&gt;&lt;br&gt;(Vertices == 4 &amp;amp;&amp;nbsp; Aspect Ratio)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=12;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="190" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="83" value="&lt;b&gt;Circle&lt;/b&gt;&lt;br&gt;(Circularity &amp;ge; 0.82)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=12;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="610" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="84" value="&lt;b&gt;Octagon&lt;/b&gt;&lt;br&gt;(Vertices 7 - 9)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=12;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="85" value="&lt;b&gt;Unknown&lt;/b&gt;&lt;br&gt;(Other shapes)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Helvetica;fontSize=12;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="650" y="610" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="&lt;b&gt;7. Output Visualization&lt;/b&gt;&lt;br&gt;Annotate Green Contour &amp;amp; Blue Shape Label on RGB Image" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontFamily=Helvetica;fontSize=13;fontStyle=1;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="700" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" parent="1" source="3" target="4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="103" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" parent="1" source="4" target="5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" parent="1" source="5" target="6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="105" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" parent="1" source="6" target="7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="106" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" parent="1" source="7" target="81" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="107" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" parent="1" source="7" target="82" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="108" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" parent="1" source="7" target="83" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="109" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" parent="1" source="7" target="84" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="110" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;" parent="1" source="7" target="85" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q0QoaTnIvaRrZKtoSYU5-115" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="81" target="9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="305" y="570" as="sourcePoint" />
+            <mxPoint x="130" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q0QoaTnIvaRrZKtoSYU5-116" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="82" target="9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="575" y="680" as="sourcePoint" />
+            <mxPoint x="400" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q0QoaTnIvaRrZKtoSYU5-117" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.566;entryY=-0.004;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="83" target="9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="615" y="690" as="sourcePoint" />
+            <mxPoint x="440" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q0QoaTnIvaRrZKtoSYU5-118" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="84" target="9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="755" y="700" as="sourcePoint" />
+            <mxPoint x="580" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q0QoaTnIvaRrZKtoSYU5-119" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#666666;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="85" target="9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="845" y="730" as="sourcePoint" />
+            <mxPoint x="670" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="red_seg_pipeline" name="Red Color Segmentation Pipeline">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Nodes -->
+        <mxCell id="2" value="&lt;b&gt;1. Image Input&lt;/b&gt;&lt;br&gt;Load RGB Traffic Sign Image (cv2.imread)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="260" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="3" value="&lt;b&gt;2. Preprocessing&lt;/b&gt;&lt;br&gt;Gaussian Blur (5x5 Kernel) for Noise Suppression" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="140" width="260" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="4" value="&lt;b&gt;3. Color Space &amp; Difference Mapping&lt;/b&gt;&lt;br&gt;Raw Redness: max(0, R - max(G,B))&lt;br&gt;Weighted by HSV Saturation Tolerance &amp; Normalized (0-255)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="240" width="340" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="5" value="&lt;b&gt;4. Adaptive Color Thresholding&lt;/b&gt;&lt;br&gt;Otsu&#39;s Automatic Binarization (cv2.THRESH_OTSU)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="350" width="260" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="6" value="&lt;b&gt;5. Morphological Cleaning&lt;/b&gt;&lt;br&gt;Morphological Opening (3x3 Ellipses) to Detach Noise&lt;br&gt;Morphological Closing (5x5 Ellipses) to Bridge Gaps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="450" width="340" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="7" value="&lt;b&gt;6. Mask Extraction &amp; Interior Filling&lt;/b&gt;&lt;br&gt;4-Connected Component Analysis to Isolate Largest Sign&lt;br&gt;External Contour Extraction &amp; Fill Interior Area (cv2.FILLED)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="560" width="380" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="8" value="&lt;b&gt;7. Final RGB Segmentation&lt;/b&gt;&lt;br&gt;Bitwise-AND with Original Image &amp;rarr; Isolated Sign on Black" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=13;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="670" width="340" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Edges -->
+        <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="103" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="105" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="106" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="blue_seg_pipeline" name="Blue Color Segmentation Pipeline">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Nodes -->
+        <mxCell id="2" value="&lt;b&gt;1. Image Input&lt;/b&gt;&lt;br&gt;Load RGB Traffic Sign Image (cv2.imread)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="260" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="3" value="&lt;b&gt;2. Preprocessing &amp;amp; Noise Filtering&lt;/b&gt;&lt;br&gt;BGR &amp;rarr; RGB Conversion&lt;br&gt;Bilateral Filter (d=7, &amp;sigma;&lt;sub&gt;Color&lt;/sub&gt;=40, &amp;sigma;&lt;sub&gt;Space&lt;/sub&gt;=40)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="140" width="340" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="4" value="&lt;b&gt;3. Color Space &amp;amp; Multi-Channel Thresholding&lt;/b&gt;&lt;br&gt;Convert to HSV Color Space&lt;br&gt;Hue Mask [99, 125] &amp;amp; Value Mask [42, 255] (cv2.inRange)&lt;br&gt;Saturation Mask via Adaptive Thresholding &amp;amp; Bitwise-AND Combine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="250" width="400" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="5" value="&lt;b&gt;4. Small Component Removal&lt;/b&gt;&lt;br&gt;8-Connected Component Analysis (cv2.connectedComponentsWithStats)&lt;br&gt;Filter Out Noise Regions &amp;lt; 5% of Total Image Area" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="370" width="380" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="6" value="&lt;b&gt;5. Morphological Closing&lt;/b&gt;&lt;br&gt;Morphological Closing (4x4 Ellipse Kernel, 1 Iteration)&lt;br&gt;Connect Nearby White Regions &amp;amp; Fill Small Black Gaps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="480" width="340" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="7" value="&lt;b&gt;6. Mask Extraction &amp;amp; Interior Filling&lt;/b&gt;&lt;br&gt;External Contour Extraction (cv2.findContours)&lt;br&gt;Isolate Largest Sign Contour &amp;amp; Apply Convex Hull (cv2.FILLED)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="590" width="380" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="8" value="&lt;b&gt;7. Final RGB Segmentation&lt;/b&gt;&lt;br&gt;Bitwise-AND with Original Image &amp;rarr; Isolated Sign on Black Background" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=13;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="700" width="380" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Edges -->
+        <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="103" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="105" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="106" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="yellow_seg_pipeline" name="Yellow Color Segmentation Pipeline">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Nodes -->
+        <mxCell id="2" value="&lt;b&gt;1. Image Input&lt;/b&gt;&lt;br&gt;Load Traffic Sign Image (cv2.imread)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="260" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="3" value="&lt;b&gt;2. Illumination Correction &amp;amp; Preprocessing&lt;/b&gt;&lt;br&gt;Check Central Region Brightness in HSV V-Channel&lt;br&gt;Apply CLAHE (clipLimit=2.0, tileGridSize=8x8) if Brightness &amp;lt; 140" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="140" width="380" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="4" value="&lt;b&gt;3. Color Space &amp;amp; Combined Thresholding&lt;/b&gt;&lt;br&gt;HSV Yellow Mask [5, 80, 30] to [40, 255, 255] (cv2.inRange)&lt;br&gt;Adaptive Gaussian Thresholding on V-Channel (block=51, C=7)&lt;br&gt;Combine Color &amp;amp; Adaptive Masks via Bitwise-AND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="250" width="400" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="5" value="&lt;b&gt;4. Morphological Cleaning&lt;/b&gt;&lt;br&gt;Morphological Closing (3x3 Ellipse Kernel, 1 Iteration)&lt;br&gt;Connect Broken Regions &amp;amp; Fill Small Gaps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="370" width="340" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="6" value="&lt;b&gt;5. Contour Selection &amp;amp; Scoring&lt;/b&gt;&lt;br&gt;Filter by Area Ratio [0.005, 0.75] of Total Image Area&lt;br&gt;Select Best Contour by Score: &lt;i&gt;Area / (Center Distance + 1)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="470" width="380" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="7" value="&lt;b&gt;6. Boundary Reconstruction &amp;amp; Filling&lt;/b&gt;&lt;br&gt;Evaluate Solidity (Area / Hull Area)&lt;br&gt;If Solidity &amp;lt; 0.90 &amp;rarr; Douglas-Peucker Approx (cv2.approxPolyDP)&lt;br&gt;Draw &amp;amp; Fill Outer Boundary Mask (cv2.FILLED)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontFamily=Helvetica;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="580" width="400" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="8" value="&lt;b&gt;7. Final RGB Segmentation&lt;/b&gt;&lt;br&gt;Bitwise-AND with Original Image &amp;rarr; Isolated Yellow Sign on Black Background" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontFamily=Helvetica;fontSize=13;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="700" width="400" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Edges -->
+        <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="103" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="105" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="106" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
