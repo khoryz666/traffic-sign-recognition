@@ -1,8 +1,8 @@
 """Shape classification (circle/triangle/octagon/...) for the ROI-segmentation
 demo notebook.
 
-Moved out of 01-roi-segmentation/Shape Detection.ipynb, which used to pull in
-segmentation.py's functions via a Jupyter `%run "Color Segmentation.ipynb"`
+Moved out of 01-roi-segmentation/02_shape_detection.ipynb, which used to pull
+in segmentation.py's functions via a Jupyter `%run "Color Segmentation.ipynb"`
 magic (it works, but only inside a live Jupyter kernel with the right
 working directory - a real import is simpler and more robust). This module
 also drops Shape Detection's own duplicate `find_best_contour` (tuned with a

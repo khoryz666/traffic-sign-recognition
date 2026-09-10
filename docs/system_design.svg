@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 830" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="830" fill="#ffffff"/>
+
+  <!-- Start -->
+  <rect x="330" y="20" width="200" height="40" rx="20" fill="#f5f5f5" stroke="#666666"/>
+  <text x="430" y="45" text-anchor="middle" font-size="13" fill="#333333">Start</text>
+
+  <!-- 00 Dataset -->
+  <rect x="300" y="100" width="260" height="70" rx="8" fill="#d5e8d4" stroke="#82b366"/>
+  <text x="430" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2d1f">00 — Dataset</text>
+  <text x="430" y="140" text-anchor="middle" font-size="11" fill="#1f2d1f">Download Chinese Traffic Signs (Kaggle)</text>
+  <text x="430" y="155" text-anchor="middle" font-size="11" fill="#1f2d1f">+ clean annotations (drop orphan / duplicate rows)</text>
+
+  <!-- 01 ROI Segmentation -->
+  <rect x="300" y="210" width="260" height="70" rx="8" fill="#d5e8d4" stroke="#82b366"/>
+  <text x="430" y="232" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2d1f">01 — ROI Segmentation</text>
+  <text x="430" y="250" text-anchor="middle" font-size="11" fill="#1f2d1f">Red / blue / yellow color segmentation</text>
+  <text x="430" y="265" text-anchor="middle" font-size="11" fill="#1f2d1f">+ shape classification (demo)</text>
+
+  <!-- pipeline/ package (side note) -->
+  <rect x="610" y="190" width="250" height="95" rx="8" fill="#fff2cc" stroke="#d6b656" stroke-dasharray="5,3"/>
+  <text x="735" y="212" text-anchor="middle" font-size="12" font-weight="bold" fill="#5a4a19">pipeline/ package</text>
+  <text x="735" y="230" text-anchor="middle" font-size="10.5" fill="#5a4a19">segmentation, preprocessing,</text>
+  <text x="735" y="244" text-anchor="middle" font-size="10.5" fill="#5a4a19">features, annotations, labels, paths</text>
+  <text x="735" y="264" text-anchor="middle" font-size="10" font-style="italic" fill="#5a4a19">(shared code, imported by 01 / 02 / 03)</text>
+
+  <!-- 02 Feature Extraction -->
+  <rect x="300" y="320" width="260" height="60" rx="8" fill="#dae8fc" stroke="#6c8ebf"/>
+  <text x="430" y="343" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a2c47">02 — Feature Extraction</text>
+  <text x="430" y="361" text-anchor="middle" font-size="11" fill="#1a2c47">Shared ROI preprocessing (segment → crop → 256×256)</text>
+
+  <!-- HOG / HSV -->
+  <rect x="180" y="420" width="180" height="50" rx="8" fill="#dae8fc" stroke="#6c8ebf"/>
+  <text x="270" y="441" text-anchor="middle" font-size="12" fill="#1a2c47">HOG features</text>
+  <text x="270" y="457" text-anchor="middle" font-size="11" fill="#1a2c47">(1764-d)</text>
+
+  <rect x="420" y="420" width="180" height="50" rx="8" fill="#dae8fc" stroke="#6c8ebf"/>
+  <text x="510" y="441" text-anchor="middle" font-size="12" fill="#1a2c47">HSV color histogram</text>
+  <text x="510" y="457" text-anchor="middle" font-size="11" fill="#1a2c47">(960-d)</text>
+
+  <!-- 03 Classifiers -->
+  <rect x="300" y="520" width="260" height="60" rx="8" fill="#e1d5e7" stroke="#9673a6"/>
+  <text x="430" y="543" text-anchor="middle" font-size="13" font-weight="bold" fill="#3a2a44">03 — Classifiers</text>
+  <text x="430" y="561" text-anchor="middle" font-size="10.5" fill="#3a2a44">Trained on the training pool (84 held-out images</text>
+  <text x="430" y="575" text-anchor="middle" font-size="10.5" fill="#3a2a44">excluded by filtering, never moved)</text>
+
+  <!-- KNN / LR / SVM -->
+  <rect x="140" y="620" width="150" height="45" rx="8" fill="#e1d5e7" stroke="#9673a6"/>
+  <text x="215" y="647" text-anchor="middle" font-size="12" fill="#3a2a44">KNN</text>
+
+  <rect x="365" y="620" width="150" height="45" rx="8" fill="#e1d5e7" stroke="#9673a6"/>
+  <text x="440" y="647" text-anchor="middle" font-size="12" fill="#3a2a44">Logistic Regression</text>
+
+  <rect x="590" y="620" width="150" height="45" rx="8" fill="#e1d5e7" stroke="#9673a6"/>
+  <text x="665" y="647" text-anchor="middle" font-size="12" fill="#3a2a44">SVM</text>
+
+  <!-- Evaluation -->
+  <rect x="300" y="720" width="260" height="80" rx="8" fill="#f5f5f5" stroke="#666666"/>
+  <text x="430" y="742" text-anchor="middle" font-size="13" font-weight="bold" fill="#333333">Evaluation</text>
+  <text x="430" y="760" text-anchor="middle" font-size="10.5" fill="#333333">Accuracy / Precision / Recall / F1 on the</text>
+  <text x="430" y="774" text-anchor="middle" font-size="10.5" fill="#333333">held-out 56 assignment images</text>
+  <text x="430" y="790" text-anchor="middle" font-size="10.5" fill="#333333">+ saved model, metrics and result tables</text>
+
+  <!-- Main flow edges -->
+  <g stroke="#333333" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M430,60 L430,100"/>
+    <path d="M430,170 L430,210"/>
+    <path d="M430,280 L430,320"/>
+    <path d="M400,380 L290,420"/>
+    <path d="M460,380 L520,420"/>
+    <path d="M290,470 L390,520"/>
+    <path d="M530,470 L460,520"/>
+    <path d="M380,580 L245,620"/>
+    <path d="M430,580 L440,620"/>
+    <path d="M480,580 L620,620"/>
+    <path d="M245,665 L390,720"/>
+    <path d="M440,665 L435,720"/>
+    <path d="M620,665 L470,720"/>
+  </g>
+
+  <!-- pipeline/ dashed links -->
+  <g stroke="#d6b656" stroke-width="1.3" stroke-dasharray="4,3" fill="none">
+    <path d="M610,255 L560,245"/>
+    <path d="M660,285 L660,350 L560,350"/>
+    <path d="M700,285 L700,550 L560,550"/>
+  </g>
+</svg>

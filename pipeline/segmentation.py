@@ -1,10 +1,10 @@
 """Color segmentation and contour selection for traffic-sign ROI detection.
 
-Moved out of 01-roi-segmentation/Color Segmentation.ipynb, which used to be
+Moved out of 01-roi-segmentation/01_color_segmentation.ipynb, which used to be
 copy-pasted (byte-for-byte, confirmed) into
-02-feature-extraction/03_hog_features_chinese.ipynb,
-02-feature-extraction/04_hsv_color_histogram_chinese.ipynb, and
-03-classifier/07_svm_classifier.ipynb. This is the single source of truth
+02-feature-extraction/01_hog_features_chinese.ipynb,
+02-feature-extraction/02_hsv_color_histogram_chinese.ipynb, and
+03-classifier/03_svm_classifier.ipynb. This is the single source of truth
 now; those notebooks import it instead.
 """
 
