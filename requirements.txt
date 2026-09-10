@@ -1,3 +1,7 @@
+# CPU-only pytorch build: avoids pulling multi-GB nvidia-cu* CUDA
+# packages that this project (no GPU training) doesn't use.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 ipykernel          # Required for Jupyter to detect this environment
 opencv-python       # Maps to -> import cv2
 numpy               # Maps to -> import numpy
