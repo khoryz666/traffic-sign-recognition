@@ -1,0 +1,10 @@
+ipykernel          # Required for Jupyter to detect this environment
+opencv-python       # Maps to -> import cv2
+numpy               # Maps to -> import numpy
+matplotlib          # Maps to -> import matplotlib
+scikit-learn        # Maps to -> import sklearn
+pandas
+torch               # Maps to -> import torch
+torchvision         # Maps to -> import torchvision (downloads GTSRB)
+pillow              # Maps to -> import PIL
+scikit-image        # Maps to -> import skimage (HOG features)
