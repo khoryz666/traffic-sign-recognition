@@ -1,14 +1,10 @@
-# CPU-only pytorch build: avoids pulling multi-GB nvidia-cu* CUDA
-# packages that this project (no GPU training) doesn't use.
---extra-index-url https://download.pytorch.org/whl/cpu
-
-ipykernel          # Required for Jupyter to detect this environment
+jupyterlab          # Jupyter interface for running the notebooks
+ipykernel           # Required for Jupyter to detect this environment
 opencv-python-headless  # Maps to -> import cv2 (no GUI/X11 libs needed; no cv2.imshow use in this repo)
 numpy               # Maps to -> import numpy
 matplotlib          # Maps to -> import matplotlib
 scikit-learn        # Maps to -> import sklearn
 pandas
-torch               # Maps to -> import torch
-torchvision         # Maps to -> import torchvision (downloads GTSRB)
 pillow              # Maps to -> import PIL
 scikit-image        # Maps to -> import skimage (HOG features)
+kagglehub           # Maps to -> import kagglehub (dataset download)
