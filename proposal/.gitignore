@@ -1,9 +1,0 @@
-# Jupyter Notebook (already covered by root .gitignore, but placed here for completeness)
-.ipynb_checkpoints/
-**/.ipynb_checkpoints/
-*-checkpoint.*
-**/*-checkpoint.*
-
-# Traffic sign dataset images and generated debug masks (keep locally, not in version control)
-Inputs/
-debug_masks/
