@@ -15,6 +15,7 @@ __pycache__/
 env/
 venv/
 ENV/
+.direnv/
 
 # Dataset and artifacts
 data/
