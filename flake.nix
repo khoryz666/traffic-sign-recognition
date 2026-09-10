@@ -27,6 +27,12 @@
             pkgs.stdenv.cc.cc
             pkgs.zlib
             pkgs.libGL
+            pkgs.glib
+            pkgs.libxcb
+            pkgs.libx11
+            pkgs.libxext
+            pkgs.libsm
+            pkgs.libice
           ];
 
           # Nix provides the interpreter; pip-installed deps still live in a

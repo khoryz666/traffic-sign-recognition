@@ -26,17 +26,19 @@
     "transform_sqrt": true,
     "channel_axis": -1
   },
-  "training_samples": 4731,
+  "training_samples": 4753,
   "public_test_metrics": {
-    "Accuracy": 0.9856297548605241,
-    "Macro Precision": 0.9921744131480226,
-    "Macro Recall": 0.9681084292691435,
-    "Macro F1": 0.9753920975462785
+    "Accuracy": 0.9806560134566863,
+    "Macro Precision": 0.9901421940928007,
+    "Macro Recall": 0.9765451799662325,
+    "Macro F1": 0.9821089077307691
   },
+  "final_testing_feature_file": "../features/assignment1_test_hog_features.npz",
+  "final_testing_samples": 56,
   "testing_metrics": {
-    "Accuracy": 0.9880952380952381,
-    "Macro Precision": 0.9895833333333334,
-    "Macro Recall": 0.9947916666666666,
-    "Macro F1": 0.9900793650793651
+    "Accuracy": 0.9821428571428571,
+    "Macro Precision": 0.9814814814814815,
+    "Macro Recall": 0.9814814814814815,
+    "Macro F1": 0.9753086419753086
   }
 }

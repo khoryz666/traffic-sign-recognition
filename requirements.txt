@@ -8,3 +8,4 @@ pandas
 pillow              # Maps to -> import PIL
 scikit-image        # Maps to -> import skimage (HOG features)
 kagglehub           # Maps to -> import kagglehub (dataset download)
+seaborn             # Maps to -> import seaborn (SVM classifier plots)
