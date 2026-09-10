@@ -18,16 +18,17 @@ ENV/
 .direnv/
 
 # Dataset and artifacts
-data/
+data/*
+!data/test-image-list.txt
 *.npz
 *.joblib
 
 # Large notebooks with embedded outputs (kept locally, not tracked)
-project/03_hog_features_chinese.ipynb
-project/04_hsv_color_histogram_chinese.ipynb
-project/05_knn_classifier with girdsearch.ipynb
-project/06_logistic_regression_classifier.ipynb
-project/07_svm_classifier.ipynb
+02-feature-extraction/03_hog_features_chinese.ipynb
+02-feature-extraction/04_hsv_color_histogram_chinese.ipynb
+03-classifier/05_knn_classifier with girdsearch.ipynb
+03-classifier/06_logistic_regression_classifier.ipynb
+03-classifier/07_svm_classifier.ipynb
 
 # OS generated files
 .DS_Store
