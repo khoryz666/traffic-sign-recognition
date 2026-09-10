@@ -51,7 +51,7 @@ Source diagram: [`docs/system_design.drawio`](docs/system_design.drawio) (open a
 | [@khoryz666](https://github.com/khoryz666) | Red color segmentation, HOG feature vectors |
 | [@sovaleow](https://github.com/sovaleow) | Shape segmentation/classification, HSV color histogram |
 | [@kahyikang](https://github.com/kahyikang) | Yellow color segmentation, SVM classifier |
-| Tan Yu Keat | Blue color segmentation, KNN and logistic regression classifiers |
+| [Tan Yu Keat](https://github.com/Ykeattan) | Blue color segmentation, KNN and logistic regression classifiers |
 
 ## 3. Results Overview
 
