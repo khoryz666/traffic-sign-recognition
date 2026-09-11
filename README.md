@@ -80,12 +80,14 @@ Demonstrates red/blue/yellow color segmentation and shape classification on the 
 
 ### 02 — Feature Extraction
 
-Both feature types share one ROI-preprocessing step (segment → crop → resize to 256×256), so they extract from — and drop — exactly the same images.
+Both feature types share one ROI-preprocessing step (segment → mask, background blacked out — no crop or resize in `pipeline.preprocessing`), so they extract from — and drop — exactly the same images. HOG additionally crops to the mask's bounding box and resizes that crop to a fixed 32×32 canvas *inside its own extractor* (`pipeline.features.extract_hog_features`), since it needs a fixed-length input; HSV's histogram needs no further step, as its dimensionality never depended on spatial size.
 
 | Feature set | Dimensions | Train extracted | Test extracted | Held-out extracted |
 | :--- | :-: | :-: | :-: | :-: |
 | HOG | 1,764 | 4,730 / 4,731 | 1,180 / 1,183 | 84 / 84 |
 | HSV histogram | 960 | 4,730 / 4,731 | 1,180 / 1,183 | 84 / 84 |
+
+**Task 1 recognition rate** (assignment formula: successfully-extracted / 84 held-out images × 100%, extractor only — no classifier involved): **HOG 100% (84/84)**, **HSV 100% (84/84)**.
 
 ### 03 — Classifiers
 
@@ -93,8 +95,8 @@ Each classifier is tuned on the training split, evaluated on a stratified 20% te
 
 | Classifier | Best parameters | Test accuracy | Test macro F1 | Held-out accuracy | Held-out macro F1 |
 | :--- | :--- | :-: | :-: | :-: | :-: |
-| KNN | k=1, euclidean, uniform | 0.9839 | 0.9707 | 0.9881 | 0.9901 |
-| Logistic Regression | C=0.1 | 0.9856 | 0.9753 | 0.9881 | 0.9767 |
-| SVM | linear, C=10 | 0.9890 | 0.9758 | 0.9881 | 0.9767 |
+| KNN | k=1, manhattan, uniform | 0.9839 | 0.9691 | 0.9881 | 0.9901 |
+| Logistic Regression | C=1.0 | 0.9856 | 0.9747 | 0.9881 | 0.9901 |
+| SVM | linear, C=10 | 0.9839 | 0.9726 | 0.9881 | 0.9901 |
 
 **What this repo aims to show:** that a fully classical computer-vision pipeline — no deep learning, no pretrained models — can recognize Chinese traffic signs with over 97% accuracy on both an internal test split and a completely held-out blind test set, using only color/shape-based segmentation and hand-crafted HOG/HSV features.
