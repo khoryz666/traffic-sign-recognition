@@ -9,14 +9,12 @@
   "selection_metric": "Macro F1, followed by accuracy and prediction time",
   "hog_features": 1764,
   "hog_configuration": {
-    "image_size": [
-      256,
-      256
-    ],
+    "roi_size": 32,
+    "roi_note": "ROI cropped to its mask's bounding box, then resized (Lanczos) to this fixed square canvas",
     "orientations": 9,
     "pixels_per_cell": [
-      32,
-      32
+      4,
+      4
     ],
     "cells_per_block": [
       2,
@@ -28,17 +26,17 @@
   },
   "training_samples": 4730,
   "public_test_metrics": {
-    "Accuracy": 0.9889830508474576,
-    "Macro Precision": 0.9921844474969476,
-    "Macro Recall": 0.9692422161172161,
-    "Macro F1": 0.9758056958767857
+    "Accuracy": 0.9838983050847457,
+    "Macro Precision": 0.9889625567874548,
+    "Macro Recall": 0.9663667204575869,
+    "Macro F1": 0.9726344350208999
   },
   "final_testing_feature_file": "../features/assignment1_test_hog_features.npz",
   "final_testing_samples": 84,
   "testing_metrics": {
     "Accuracy": 0.9880952380952381,
-    "Macro Precision": 0.9795918367346939,
-    "Macro Recall": 0.9744897959183674,
-    "Macro F1": 0.9766763848396502
+    "Macro Precision": 0.9895833333333334,
+    "Macro Recall": 0.9947916666666666,
+    "Macro F1": 0.9900793650793651
   }
 }
