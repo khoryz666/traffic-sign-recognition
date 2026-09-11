@@ -23,9 +23,6 @@ data/*
 *.npz
 *.joblib
 
-# Notebooks carry embedded outputs and get large fast - kept locally, not tracked
-*.ipynb
-
 # OS generated files
 .DS_Store
 .DS_Store?
