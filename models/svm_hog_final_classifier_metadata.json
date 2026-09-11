@@ -1,9 +1,10 @@
 {
   "classifier": "SVM",
   "parameters": {
-    "kernel": "linear",
-    "class_weight": null,
-    "C": 10
+    "kernel": "rbf",
+    "gamma": 0.0001,
+    "class_weight": "balanced",
+    "C": 30
   },
   "parameter_selection": "20% stratified validation split",
   "selection_metric": "Macro F1, followed by accuracy and prediction time",
@@ -24,19 +25,19 @@
     "transform_sqrt": true,
     "channel_axis": -1
   },
-  "training_samples": 4730,
+  "training_samples": 4719,
   "public_test_metrics": {
-    "Accuracy": 0.9838983050847457,
-    "Macro Precision": 0.9889625567874548,
-    "Macro Recall": 0.9663667204575869,
-    "Macro F1": 0.9726344350208999
+    "Accuracy": 0.9881053525913339,
+    "Macro Precision": 0.9951062496877928,
+    "Macro Recall": 0.9856290518876925,
+    "Macro F1": 0.9892783382324097
   },
   "final_testing_feature_file": "../features/assignment1_test_hog_features.npz",
   "final_testing_samples": 84,
   "testing_metrics": {
-    "Accuracy": 0.9880952380952381,
-    "Macro Precision": 0.9895833333333334,
-    "Macro Recall": 0.9947916666666666,
-    "Macro F1": 0.9900793650793651
+    "Accuracy": 1.0,
+    "Macro Precision": 1.0,
+    "Macro Recall": 1.0,
+    "Macro F1": 1.0
   }
 }
