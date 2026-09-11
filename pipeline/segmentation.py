@@ -625,103 +625,260 @@ def segment_yellow(img, debug=False):
 
 
 # ---------------------------------------------------------------------
-# Combined-mask contour selection and ROI extraction
+# Shape feature extraction
 #
-# Used downstream of red/blue/yellow segmentation to pick one best
-# traffic-sign contour out of the combined mask, and to crop the image to
-# that contour's bounding box. Previously copy-pasted identically into the
-# HOG, HSV and SVM notebooks.
+# Moved here from pipeline/shapes.py (which now imports these back) because
+# find_best_candidate below needs shape_score to compare red/blue/yellow
+# candidates, and shapes.py already depended on this module - keeping the
+# shared logic here avoids a circular import.
 # ---------------------------------------------------------------------
 
 
-def find_best_contour(mask):
-    """
-    Select the best traffic-sign contour from a combined red|blue|yellow
-    binary mask. Candidate contours are filtered by a small minimum area
-    and scored using area, circularity and solidity.
-    """
+def extract_features(contour):
 
-    contours, _ = cv2.findContours(
-        mask,
-        cv2.RETR_EXTERNAL,
-        cv2.CHAIN_APPROX_SIMPLE
-    )
+    area = cv2.contourArea(contour)
 
-    if not contours:
+    perimeter = cv2.arcLength(contour, True)
+
+    if perimeter == 0:
         return None
 
-    best_contour = None
-    best_score = 0
+    circularity = 4 * np.pi * area / (perimeter * perimeter)
 
-    # Use a small absolute minimum contour area.
-    MIN_AREA = 3.0
+    if area < 3000:
+        epsilon = 0.018 * perimeter
+    else:
+        epsilon = 0.02 * perimeter
+
+    approx = cv2.approxPolyDP(
+        contour,
+        epsilon,
+        True
+    )
+
+    vertices = len(approx)
+
+    x, y, w, h = cv2.boundingRect(contour)
+
+    aspect_ratio = w / float(h)
+
+    return {
+        "area": area,
+        "perimeter": perimeter,
+        "circularity": circularity,
+        "vertices": vertices,
+        "aspect_ratio": aspect_ratio,
+        "bounding_box": (x, y, w, h),
+        "approx": approx
+    }
+
+
+def classify_shape(features):
+
+    vertices = features["vertices"]
+    circularity = features["circularity"]
+    aspect_ratio = features["aspect_ratio"]
+
+    if vertices == 3:
+        return "Triangle"
+
+    elif vertices == 4:
+
+        if 0.9 <= aspect_ratio <= 1.1:
+            return "Square"
+        else:
+            return "Rectangle"
+
+    elif circularity >= 0.82:
+        return "Circle"
+
+    elif 7 <= vertices <= 9:
+        return "Octagon"
+
+    else:
+        return "Unknown"
+
+
+# ---------------------------------------------------------------------
+# Multi-colour candidate scoring and contour selection
+#
+# Ported from @kahyikang's 03_automatic_colour_segmentation_for_dataset.ipynb.
+# This module used to OR red|blue|yellow masks together and score contours
+# found on that single merged mask, using only area x circularity x
+# solidity, with a MIN_AREA of 3.0 pixels that barely filters anything.
+# This instead finds each colour's own best candidate contour independently
+# (on that colour's own cleaned mask, before it gets merged with the
+# others) and only then picks a winner across colours - so two
+# different-coloured blobs sitting next to each other in the same image
+# can no longer merge into one bad contour. The score also adds two checks
+# the merged-mask approach never made: hue_agreement_score (do the winning
+# contour's actual pixels agree with the colour credited for it?) and
+# colour_coverage (how much of the filled contour's interior is really
+# that colour, versus background swept in by a loose mask?).
+# ---------------------------------------------------------------------
+
+
+def get_red_stage_masks(img):
+    """Return (colour_mask, cleaned_mask) for red - the same masks
+    segment_red computes internally, before it collapses them down to a
+    single largest-component result.
+    """
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    blurred = apply_gaussian_blur(img)
+    diff = get_red_diff_map(blurred)
+    colour_mask = adaptive_color_threshold(diff)
+    cleaned_mask = clean_morphology(colour_mask)
+    return colour_mask, cleaned_mask
+
+
+def get_blue_stage_masks(img):
+    """Return (colour_mask, cleaned_mask) for blue - the same masks
+    segment_blue computes internally, before it collapses them down to a
+    single largest-contour result.
+    """
+    colour_mask, _, cleaned_mask = enhance_img(img)
+    return colour_mask, cleaned_mask
+
+
+def get_yellow_stage_masks(img):
+    """Return (colour_mask, cleaned_mask) for yellow - the same masks
+    segment_yellow computes internally, before it collapses them down to a
+    single best-contour result.
+    """
+    cleaned_image = clean_dark_image(img)
+    colour_mask = create_combined_threshold(cleaned_image)
+    cleaned_mask = apply_morphological_closing(colour_mask)
+    return colour_mask, cleaned_mask
+
+
+COLOUR_STAGE_FUNCTIONS = {
+    "red": get_red_stage_masks,
+    "blue": get_blue_stage_masks,
+    "yellow": get_yellow_stage_masks,
+}
+
+
+def hue_agreement_score(image_bgr, contour, colour):
+    """Fraction-weighted agreement between the contour's pixel hues and the
+    expected hue for `colour` ("red", "blue" or "yellow"). Pixels with low
+    saturation/value are excluded, since hue is unreliable there (white,
+    black and glare pixels carry no usable colour information).
+    """
+    contour_mask = np.zeros(image_bgr.shape[:2], dtype=np.uint8)
+    cv2.drawContours(contour_mask, [contour], -1, 255, cv2.FILLED)
+
+    hsv = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2HSV)
+    hue = hsv[:, :, 0].astype(np.float32)
+    saturation = hsv[:, :, 1]
+    value = hsv[:, :, 2]
+    valid = (contour_mask > 0) & (saturation >= 45) & (value >= 30)
+
+    if not np.any(valid):
+        return 0.0
+
+    selected_hue = hue[valid]
+    if colour == "red":
+        distance = np.minimum(selected_hue, 180.0 - selected_hue)
+        affinity = np.clip(1.0 - distance / 18.0, 0.0, 1.0)
+    elif colour == "yellow":
+        affinity = np.clip(1.0 - np.abs(selected_hue - 25.0) / 20.0, 0.0, 1.0)
+    else:
+        affinity = np.clip(1.0 - np.abs(selected_hue - 112.0) / 25.0, 0.0, 1.0)
+
+    return float(np.mean(affinity))
+
+
+def find_best_candidate(image_bgr, colour, colour_mask, cleaned_mask):
+    """Score every contour on `cleaned_mask` and return the best one for
+    this single colour (as {"colour", "contour", "score"}), or None.
+    Candidates are filtered by a mask-relative area ratio - rather than a
+    fixed MIN_AREA=3.0, which barely filters anything - and scored on
+    area, distance from the image centre, solidity,
+    circularity, whether the outline resembles a real sign shape,
+    colour_coverage and hue_agreement_score.
+    """
+    height, width = cleaned_mask.shape
+    image_area = float(height * width)
+    image_diagonal = float(np.hypot(width, height))
+
+    contours, _ = cv2.findContours(
+        cleaned_mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+    )
+
+    best = None
 
     for contour in contours:
-
         area = cv2.contourArea(contour)
-
-        # Reject extremely small noise
-        if area < MIN_AREA:
+        area_ratio = area / image_area
+        if area < max(20.0, image_area * 0.002) or area_ratio > 0.85:
             continue
 
-        perimeter = cv2.arcLength(
-            contour,
-            True
-        )
-
-        if perimeter == 0:
+        perimeter = cv2.arcLength(contour, True)
+        if perimeter <= 0:
             continue
 
-        # Circularity
-        circularity = (
-            4 * np.pi * area
-            / (perimeter ** 2)
-        )
-
-        # Convex hull
         hull = cv2.convexHull(contour)
-
         hull_area = cv2.contourArea(hull)
-
-        if hull_area == 0:
+        if hull_area <= 0:
             continue
 
-        # Solidity
-        solidity = area / hull_area
+        moments = cv2.moments(contour)
+        if moments["m00"] == 0:
+            continue
+
+        centre_x = moments["m10"] / moments["m00"]
+        centre_y = moments["m01"] / moments["m00"]
+        centre_distance = np.hypot(centre_x - width / 2, centre_y - height / 2)
+
+        solidity = float(area / hull_area)
+        circularity = float(np.clip(4.0 * np.pi * area / (perimeter * perimeter), 0, 1))
+        area_score = float(min(area_ratio / 0.25, 1.0))
+        centre_score = float(max(0.0, 1.0 - centre_distance / (0.5 * image_diagonal + 1e-6)))
+
+        shape_features = extract_features(contour)
+        shape = classify_shape(shape_features) if shape_features else "Unknown"
+        shape_score = 1.0 if shape != "Unknown" else 0.25
+
+        filled = np.zeros_like(cleaned_mask)
+        cv2.drawContours(filled, [contour], -1, 255, thickness=cv2.FILLED)
+        filled_pixels = max(cv2.countNonZero(filled), 1)
+        colour_pixels = cv2.countNonZero(cv2.bitwise_and(colour_mask, filled))
+        colour_coverage = float(colour_pixels / filled_pixels)
+        hue_score = hue_agreement_score(image_bgr, contour, colour)
 
         score = (
-            area
-            * circularity
-            * solidity
+            0.25 * area_score
+            + 0.17 * centre_score
+            + 0.13 * solidity
+            + 0.10 * circularity
+            + 0.15 * shape_score
+            + 0.08 * min(colour_coverage / 0.35, 1.0)
+            + 0.12 * hue_score
         )
 
-        if score > best_score:
+        if best is None or score > best["score"]:
+            best = {"colour": colour, "contour": contour, "score": score}
 
-            best_score = score
-            best_contour = contour
-
-    return best_contour
+    return best
 
 
-def extract_roi_from_mask(image, mask):
+def select_best_contour_multi_colour(image_bgr):
+    """Pick one best traffic-sign contour by scoring red/blue/yellow
+    candidates separately (find_best_candidate) and comparing across
+    colours - instead of OR-ing their masks into one first and scoring
+    contours found on that merged mask. The winner is passed through
+    reconstruct_outer_contour to repair a broken/partial outline before
+    being returned. Returns None if no colour produced a usable candidate.
     """
-    Extract the traffic-sign ROI: select the best contour from the
-    combined mask, then crop the image to its bounding box.
-    """
+    candidates = []
+    for colour, stage_function in COLOUR_STAGE_FUNCTIONS.items():
+        colour_mask, cleaned_mask = stage_function(image_bgr)
+        candidate = find_best_candidate(image_bgr, colour, colour_mask, cleaned_mask)
+        if candidate is not None:
+            candidates.append(candidate)
 
-    best_contour = find_best_contour(mask)
+    if not candidates:
+        return None
 
-    if best_contour is None:
-        return None, None, None
-
-    x, y, w, h = cv2.boundingRect(best_contour)
-
-    if w <= 0 or h <= 0:
-        return None, None, None
-
-    roi = image[
-        y:y + h,
-        x:x + w
-    ]
-
-    return roi, (x, y, w, h), best_contour
+    winner = max(candidates, key=lambda item: item["score"])
+    return reconstruct_outer_contour(winner["contour"])
