@@ -71,12 +71,12 @@ Downloads `dmitryyemelyanov/chinese-traffic-signs` from Kaggle and cleans `annot
 
 ### 01 — ROI Segmentation
 
-Demonstrates red/blue/yellow color segmentation and shape classification on the held-out images.
+Demonstrates red/blue/yellow color segmentation and shape classification on the held-out images. Contour selection scores each colour's own best candidate contour independently (area, centre distance, solidity, circularity, shape, colour coverage, hue agreement) and picks the winner across colours — adapted from [@kahyikang](https://github.com/kahyikang)'s automatic colour-segmentation notebook — rather than OR-ing all three colour masks into one mask and picking a single contour from that merger.
 
 | Metric | Value |
 | :--- | :--- |
 | Traffic-sign contour detected | 84 / 84 |
-| Shape breakdown | Circle 36 · Triangle 18 · Unknown 16 · Octagon 6 · Rectangle 6 · Square 2 |
+| Shape breakdown | Circle 45 · Triangle 21 · Unknown 8 · Rectangle 6 · Octagon 2 · Square 2 |
 
 ### 02 — Feature Extraction
 
@@ -84,19 +84,19 @@ Both feature types share one ROI-preprocessing step (segment → mask, backgroun
 
 | Feature set | Dimensions | Train extracted | Test extracted | Held-out extracted |
 | :--- | :-: | :-: | :-: | :-: |
-| HOG | 1,764 | 4,730 / 4,731 | 1,180 / 1,183 | 84 / 84 |
-| HSV histogram | 960 | 4,730 / 4,731 | 1,180 / 1,183 | 84 / 84 |
+| HOG | 1,764 | 4,719 / 4,731 | 1,177 / 1,183 | 84 / 84 |
+| HSV histogram | 960 | 4,719 / 4,731 | 1,177 / 1,183 | 84 / 84 |
 
 **Task 1 recognition rate** (assignment formula: successfully-extracted / 84 held-out images × 100%, extractor only — no classifier involved): **HOG 100% (84/84)**, **HSV 100% (84/84)**.
 
 ### 03 — Classifiers
 
-Each classifier is tuned on the training split, evaluated on a stratified 20% test split (1,183 images), and finally evaluated on the fully blind 84-image held-out set.
+Each classifier is tuned on the training split, evaluated on a stratified 20% test split (1,177 images), and finally evaluated on the fully blind 84-image held-out set.
 
 | Classifier | Best parameters | Test accuracy | Test macro F1 | Held-out accuracy | Held-out macro F1 |
 | :--- | :--- | :-: | :-: | :-: | :-: |
-| KNN | k=1, manhattan, uniform | 0.9839 | 0.9691 | 0.9881 | 0.9901 |
-| Logistic Regression | C=1.0 | 0.9856 | 0.9747 | 0.9881 | 0.9901 |
-| SVM | linear, C=10 | 0.9839 | 0.9726 | 0.9881 | 0.9901 |
+| KNN | k=1, euclidean, uniform | 0.9881 | 0.9874 | 1.0000 | 1.0000 |
+| Logistic Regression | C=0.1 | 0.9898 | 0.9933 | 1.0000 | 1.0000 |
+| SVM | rbf, C=30, gamma=0.0001, balanced | 0.9881 | 0.9893 | 1.0000 | 1.0000 |
 
 **What this repo aims to show:** that a fully classical computer-vision pipeline — no deep learning, no pretrained models — can recognize Chinese traffic signs with over 97% accuracy on both an internal test split and a completely held-out blind test set, using only color/shape-based segmentation and hand-crafted HOG/HSV features.
