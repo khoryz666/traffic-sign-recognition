@@ -1,27 +1,33 @@
-"""Shared ROI preprocessing for both HOG and HSV feature extraction.
+"""Shared segment + ROI-extraction routine for both HOG and HSV feature
+extraction.
 
-Previously HOG and HSV extracted their ROI differently: HOG cropped to the
-detected contour's bounding box, resized to 32x32, and fell back to the
-whole image when no contour was found (so it never dropped a sample). HSV
-masked by the exact contour shape (no crop/resize) and returned None
-(dropping the sample) when no contour was found. Those are now unified into
-one function that combines both approaches - crop to the bounding box *and*
-keep the exact contour mask within that crop, both resized to ROI_SIZE - and
-one fallback behavior: drop the sample when segmentation finds nothing.
+This is a direct port of 04_hsv_color_histogram_chinese.py's
+extract_hsv_features_from_image() segmentation/contour-selection logic - now
+the single standard for both feature types, replacing the earlier version of
+this module that unified it with HOG's separate bbox-crop-and-resize-to-32x32
+behavior.
+
+Like 04, there is no crop and no resize: the best-scoring contour is filled
+into a mask at the image's original resolution. Unlike the version before
+this fix, the returned image is not the original untouched photo - it is
+that image with the mask already applied, so every pixel outside the sign's
+contour is pure black. Both feature extractors therefore only ever see the
+segmented region, never the surrounding background. A sample is dropped
+(returns None) when no color region or no contour is found - exactly 04's
+behavior.
+
+Consequence for HOG: pipeline.features.extract_hog_features receives a
+variable-size input (this module never resizes), so it crops to the mask's
+bounding box and resizes that crop itself to reach a constant 1764-dim
+vector - see pipeline/features.py for that step. HSV needs none of this: a
+masked histogram's dimensionality never depended on the input's spatial
+size.
 """
 
 import cv2
 import numpy as np
-from PIL import Image
 
-from pipeline.segmentation import (
-    extract_roi_from_mask,
-    segment_blue,
-    segment_red,
-    segment_yellow,
-)
-
-ROI_SIZE = 256
+from pipeline.segmentation import find_best_contour, segment_blue, segment_red, segment_yellow
 
 
 def get_combined_mask(image_bgr):
@@ -32,13 +38,15 @@ def get_combined_mask(image_bgr):
 
 
 def get_roi(image_rgb):
-    """Detect the traffic sign, crop to its bounding box, and resize both
-    the cropped RGB image and a matching contour-shape mask to ROI_SIZE x
-    ROI_SIZE.
+    """Segment the traffic sign and return (roi_rgb, mask), unchanged in
+    size from the input, or None if no sign was found.
 
-    Returns (roi_rgb, roi_mask) as uint8 arrays, or None if no traffic-sign
-    contour was found - callers should drop the sample in that case, rather
-    than silently falling back to the whole image.
+    mask is zero everywhere except the filled shape of the best-scoring
+    contour, at image_rgb's original resolution. roi_rgb is image_rgb with
+    that mask already applied - every pixel outside the sign's contour is
+    pure black (0, 0, 0); only the segmented region keeps its original
+    pixel values. Callers that need a fixed-size input (HOG) are
+    responsible for resizing/cropping themselves.
     """
     image_bgr = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2BGR)
     combined_mask = get_combined_mask(image_bgr)
@@ -46,24 +54,14 @@ def get_roi(image_rgb):
     if np.count_nonzero(combined_mask) == 0:
         return None
 
-    roi_rgb, bbox, best_contour = extract_roi_from_mask(image_rgb, combined_mask)
+    best_contour = find_best_contour(combined_mask)
 
-    if roi_rgb is None:
+    if best_contour is None:
         return None
 
-    x, y, w, h = bbox
+    mask = np.zeros_like(combined_mask)
+    cv2.drawContours(mask, [best_contour], -1, 255, thickness=cv2.FILLED)
 
-    # The exact sign silhouette within the crop (HSV's shape-precision
-    # advantage), rather than the whole rectangular bounding box.
-    shifted_contour = best_contour - [x, y]
-    roi_mask = np.zeros((h, w), dtype=np.uint8)
-    cv2.drawContours(roi_mask, [shifted_contour], -1, 255, thickness=cv2.FILLED)
+    roi_rgb = cv2.bitwise_and(image_rgb, image_rgb, mask=mask)
 
-    roi_rgb_resized = np.array(
-        Image.fromarray(roi_rgb).resize((ROI_SIZE, ROI_SIZE), Image.Resampling.LANCZOS)
-    )
-    roi_mask_resized = cv2.resize(
-        roi_mask, (ROI_SIZE, ROI_SIZE), interpolation=cv2.INTER_NEAREST
-    )
-
-    return roi_rgb_resized, roi_mask_resized
+    return roi_rgb, mask
