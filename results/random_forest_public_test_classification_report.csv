@@ -1,0 +1,62 @@
+,precision,recall,f1-score,support
+Speed limit five kilometers per hour,1.0,0.9230769230769231,0.96,26.0
+Speed limit fifteen kilometers per hour,1.0,1.0,1.0,10.0
+Speed limit thirty kilometers per hour,1.0,1.0,1.0,20.0
+Speed limit fourty kilometers per hour,1.0,1.0,1.0,63.0
+Speed limit fifty kilometers per hour,1.0,0.9354838709677419,0.9666666666666667,31.0
+Speed limit sixty kilometers per hour,1.0,0.9583333333333334,0.9787234042553191,48.0
+Speed limit seventy kilometers per hour,1.0,1.0,1.0,22.0
+Speed limit eighty kilometers per hour,1.0,1.0,1.0,40.0
+Don't Go straight or left,1.0,1.0,1.0,4.0
+Don't Go straight or Right,0.0,0.0,0.0,0.0
+Don't Go straight,1.0,1.0,1.0,26.0
+Don't Go Left,1.0,1.0,1.0,49.0
+Don't Go Left or Right,1.0,1.0,1.0,23.0
+Don't Go Right,1.0,1.0,1.0,23.0
+Don't overtake from Left,1.0,1.0,1.0,28.0
+No U-turn,1.0,1.0,1.0,11.0
+No Car,1.0,0.9523809523809523,0.975609756097561,42.0
+No horn,1.0,1.0,1.0,38.0
+End of Speed limit fouty kilometers per hour,1.0,1.0,1.0,2.0
+End of Speed limit fifty kilometers per hour,1.0,1.0,1.0,1.0
+Go straight or right,1.0,0.6666666666666666,0.8,3.0
+Go straight,1.0,1.0,1.0,4.0
+Go Left,1.0,1.0,1.0,5.0
+Go Left or right,1.0,1.0,1.0,2.0
+Go Right,1.0,1.0,1.0,22.0
+keep Left,1.0,1.0,1.0,1.0
+keep Right,0.9285714285714286,1.0,0.9629629629629629,52.0
+Roundabout mandatory,1.0,1.0,1.0,9.0
+watch out for cars,1.0,1.0,1.0,102.0
+Horn,1.0,1.0,1.0,14.0
+Non-motor vehicle allowed,1.0,1.0,1.0,36.0
+Uturn allowed,1.0,1.0,1.0,11.0
+Watch for Road Divider,1.0,1.0,1.0,3.0
+Watch for Traffic signals,0.0,0.0,0.0,0.0
+Danger Ahead,1.0,1.0,1.0,6.0
+Watch for Zebra Crossing,1.0,1.0,1.0,40.0
+Watch for non-motor vehicle,1.0,1.0,1.0,8.0
+Watch for Children crossing,1.0,1.0,1.0,16.0
+Dangerous curve to the left,1.0,1.0,1.0,14.0
+Dangerous curve to the right,1.0,0.8461538461538461,0.9166666666666666,13.0
+Watch for down steep slope,1.0,1.0,1.0,8.0
+Watch for up steep slope,1.0,1.0,1.0,5.0
+Slow down,1.0,1.0,1.0,10.0
+Go right or straight,1.0,1.0,1.0,37.0
+Go left or straight,1.0,1.0,1.0,11.0
+Near the village,1.0,0.6,0.75,5.0
+Watch for ZigZag Curve,1.0,1.0,1.0,6.0
+Watch for Trains,1.0,1.0,1.0,4.0
+Watch for Construction site,1.0,1.0,1.0,3.0
+Watch for consecutive turnings,0.8947368421052632,1.0,0.9444444444444444,17.0
+Watch for fences,1.0,1.0,1.0,15.0
+Watch for Heavy Vehicle Accidents,1.0,1.0,1.0,2.0
+Stop to yield,1.0,1.0,1.0,10.0
+No pass,1.0,1.0,1.0,1.0
+No stopping,0.9326923076923077,0.9797979797979798,0.9556650246305419,99.0
+No entry,1.0,1.0,1.0,44.0
+Slow down to yield,0.9375,1.0,0.967741935483871,30.0
+Stop for check,1.0,1.0,1.0,2.0
+accuracy,0.9872557349192863,0.9872557349192863,0.9872557349192863,0.9872557349192863
+macro avg,0.9602327685925689,0.9458947167651283,0.9513531182966901,1177.0
+weighted avg,0.9880694809371641,0.9872557349192863,0.9870181747037006,1177.0

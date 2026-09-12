@@ -1,17 +1,27 @@
 {
   "classifier": "SVM",
   "parameters": {
-    "kernel": "rbf",
+    "C": 10,
+    "class_weight": null,
     "gamma": 0.0001,
-    "class_weight": "balanced",
-    "C": 30
+    "kernel": "rbf"
   },
-  "parameter_selection": "20% stratified validation split",
-  "selection_metric": "Macro F1, followed by accuracy and prediction time",
-  "hog_features": 1764,
+  "parameter_selection": {
+    "method": "GridSearchCV with StratifiedKFold",
+    "maximum_requested_folds": 5,
+    "folds_used": 2,
+    "minimum_development_class_count": 2,
+    "shuffle": true,
+    "random_state": 42,
+    "refit_metric": "macro_f1",
+    "best_mean_macro_f1": 0.9441882194539047,
+    "best_std_macro_f1": 0.005050069946575975,
+    "best_mean_accuracy": 0.9485055431416645,
+    "best_std_accuracy": 0.0023419144854541774
+  },
   "hog_configuration": {
+    "feature_dimension": 1764,
     "roi_size": 32,
-    "roi_note": "ROI cropped to its mask's bounding box, then resized (Lanczos) to this fixed square canvas",
     "orientations": 9,
     "pixels_per_cell": [
       4,
@@ -22,22 +32,36 @@
       2
     ],
     "block_norm": "L2-Hys",
-    "transform_sqrt": true,
-    "channel_axis": -1
+    "transform_sqrt": true
   },
-  "training_samples": 4719,
-  "public_test_metrics": {
+  "development_samples": {
+    "intended": 4731,
+    "extracted": 4719,
+    "failed_extraction": 12
+  },
+  "public_test_samples": {
+    "intended": 1183,
+    "extracted": 1177,
+    "failed_extraction": 6
+  },
+  "public_test_classification_only_metrics": {
     "Accuracy": 0.9881053525913339,
-    "Macro Precision": 0.9951062496877928,
-    "Macro Recall": 0.9856290518876925,
-    "Macro F1": 0.9892783382324097
+    "Macro Precision": 0.9607922410778689,
+    "Macro Recall": 0.9516418432019099,
+    "Macro F1": 0.9551652920864646
   },
-  "final_testing_feature_file": "../features/assignment1_test_hog_features.npz",
-  "final_testing_samples": 84,
-  "testing_metrics": {
+  "public_test_end_to_end_metrics": {
+    "Accuracy": 0.9830938292476754,
+    "Macro Precision": 0.9607922410778689,
+    "Macro Recall": 0.946550813764449,
+    "Macro F1": 0.9525039694736855
+  },
+  "assignment_samples": 84,
+  "assignment_metrics": {
     "Accuracy": 1.0,
-    "Macro Precision": 1.0,
-    "Macro Recall": 1.0,
-    "Macro F1": 1.0
-  }
+    "Macro Precision": 0.8275862068965517,
+    "Macro Recall": 0.8275862068965517,
+    "Macro F1": 0.8275862068965517
+  },
+  "assignment_hog_source": "C:\\Users\\User\\OneDrive\\Desktop\\traffic-sign-recognition\\features\\assignment1_test_hog_features.npz"
 }

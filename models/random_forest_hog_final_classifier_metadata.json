@@ -1,0 +1,68 @@
+{
+  "classifier": "Random Forest",
+  "parameters": {
+    "class_weight": "balanced_subsample",
+    "max_depth": null,
+    "max_features": "log2",
+    "min_samples_split": 2,
+    "n_estimators": 400
+  },
+  "parameter_selection": {
+    "method": "GridSearchCV with StratifiedKFold",
+    "maximum_requested_folds": 5,
+    "folds_used": 2,
+    "minimum_development_class_count": 2,
+    "shuffle": true,
+    "random_state": 42,
+    "refit_metric": "macro_f1",
+    "best_mean_macro_f1": 0.9208456207972662,
+    "best_std_macro_f1": 0.004667392074980015,
+    "best_mean_accuracy": 0.9410884926821907,
+    "best_std_accuracy": 0.0034030327415380257
+  },
+  "hog_configuration": {
+    "feature_dimension": 1764,
+    "roi_size": 32,
+    "orientations": 9,
+    "pixels_per_cell": [
+      4,
+      4
+    ],
+    "cells_per_block": [
+      2,
+      2
+    ],
+    "block_norm": "L2-Hys",
+    "transform_sqrt": true
+  },
+  "development_samples": {
+    "intended": 4731,
+    "extracted": 4719,
+    "failed_extraction": 12
+  },
+  "public_test_samples": {
+    "intended": 1183,
+    "extracted": 1177,
+    "failed_extraction": 6
+  },
+  "public_test_classification_only_metrics": {
+    "Accuracy": 0.9872557349192863,
+    "Macro Precision": 0.9602327685925689,
+    "Macro Recall": 0.9458947167651283,
+    "Macro F1": 0.9513531182966901
+  },
+  "public_test_end_to_end_metrics": {
+    "Accuracy": 0.9822485207100592,
+    "Macro Precision": 0.9602327685925689,
+    "Macro Recall": 0.9408036873276674,
+    "Macro F1": 0.9486942308248266
+  },
+  "assignment_samples": 84,
+  "assignment_metrics": {
+    "Accuracy": 0.9880952380952381,
+    "Macro Precision": 0.8275862068965517,
+    "Macro Recall": 0.8232758620689655,
+    "Macro F1": 0.8251231527093597
+  },
+  "assignment_hog_source": "C:\\Users\\User\\OneDrive\\Desktop\\traffic-sign-recognition\\features\\assignment1_test_hog_features.npz"
+}

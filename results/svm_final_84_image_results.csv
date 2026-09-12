@@ -1,85 +1,85 @@
-Filename,Actual Class,Actual Sign,Predicted Class,Predicted Sign,Correct,Segmentation Found,Bounding Box,Classification Time (s),Below 2 Seconds
-001_0004.png,1,1,1,1,True,True,"(19, 9, 45, 48)",0.005527160999918124,True
-002_0036.png,2,2,2,2,True,True,"(37, 35, 198, 162)",0.0039382989998557605,True
-005_0030.png,5,5,5,5,True,True,"(0, 11, 102, 82)",0.003676601998449769,True
-020_0003.png,20,20,20,20,True,True,"(35, 23, 122, 122)",0.0035782660015684087,True
-020_0004.png,20,20,20,20,True,True,"(26, 18, 102, 103)",0.0035504039988154545,True
-020_0006.png,20,20,20,20,True,True,"(45, 23, 177, 173)",0.0036920460006513167,True
-021_0003.png,21,21,21,21,True,True,"(27, 17, 73, 85)",0.0043631730004563,True
-021_0002_j.png,21,21,21,21,True,True,"(30, 24, 77, 67)",0.004407093998452183,True
-027_0002.png,27,27,27,27,True,True,"(28, 15, 93, 100)",0.004789490998518886,True
-031_0011.png,31,31,31,31,True,True,"(28, 18, 84, 86)",0.004814739000721602,True
-038_0008.png,38,38,38,38,True,True,"(38, 34, 79, 73)",0.0045048240026517306,True
-042_0002_j.png,42,42,42,42,True,True,"(42, 39, 64, 60)",0.003998452997620916,True
-046_0005_j.png,46,46,46,46,True,True,"(32, 36, 63, 56)",0.004541957001492847,True
-047_0002.png,47,47,47,47,True,True,"(34, 31, 55, 47)",0.0053096340016054455,True
-047_0005.png,47,47,47,47,True,True,"(61, 55, 112, 108)",0.004845493000175338,True
-020_0002_j.png,20,20,20,20,True,True,"(27, 26, 41, 69)",0.006061569001758471,True
-021_0004_j.png,21,21,21,21,True,True,"(46, 25, 96, 99)",0.0046136179989844095,True
-042_0016_j.png,42,42,42,42,True,True,"(40, 45, 55, 47)",0.005617160000838339,True
-051_0005_j.png,51,51,51,51,True,True,"(13, 0, 58, 72)",0.004601537999405991,True
-057_0003_j.png,57,57,57,57,True,True,"(29, 24, 83, 89)",0.005616667000140296,True
-011_0029.png,11,11,11,11,True,True,"(5, 5, 56, 53)",0.005963992000033613,True
-013_0013.png,13,13,13,13,True,True,"(15, 8, 91, 89)",0.0053496379987336695,True
-021_0004.png,21,21,21,21,True,True,"(30, 16, 87, 101)",0.004252632999850903,True
-022_0005.png,22,22,22,22,True,True,"(24, 9, 102, 102)",0.0054305080011545215,True
-027_0010.png,27,27,27,27,True,True,"(16, 15, 60, 61)",0.004684962001192616,True
-027_0012.png,27,27,27,27,True,True,"(23, 15, 65, 64)",0.004396560998429777,True
-028_0202.png,28,28,28,28,True,True,"(22, 16, 81, 84)",0.005053484001109609,True
-037_0019.png,37,37,37,37,True,True,"(32, 26, 68, 60)",0.00627784599782899,True
-037_0021.png,37,37,37,37,True,True,"(23, 26, 57, 56)",0.006487324000772787,True
-040_0011.png,40,40,40,40,True,True,"(74, 0, 62, 101)",0.004644325999834109,True
-048_0004.png,48,48,48,48,True,True,"(0, 25, 193, 143)",0.005109538000397151,True
-000_1_0002.png,0,0,0,0,True,True,"(24, 17, 123, 134)",0.004604726997058606,True
-000_1_0013.png,0,0,0,0,True,True,"(31, 0, 127, 121)",0.005079594000562793,True
-000_1_0018.png,0,0,0,0,True,True,"(37, 14, 145, 165)",0.004433993002749048,True
-000_1_0034.png,0,0,0,0,True,True,"(16, 12, 33, 39)",0.0052119850006420165,True
-001_1_0009.png,1,1,1,1,True,True,"(26, 14, 83, 110)",0.004968583998561371,True
-002_1_0010.png,2,2,2,2,True,True,"(23, 14, 52, 51)",0.005220917999395169,True
-003_1_0034.png,3,3,3,3,True,True,"(14, 14, 40, 39)",0.005572187001234852,True
-004_1_0020.png,4,4,4,4,True,True,"(13, 12, 55, 57)",0.00536077500146348,True
-005_1_0027.png,5,5,5,5,True,True,"(22, 15, 122, 132)",0.006007091997162206,True
-007_1_0006.png,7,7,7,7,True,True,"(21, 14, 98, 94)",0.005459391999465879,True
-012_1_0015.png,12,12,12,12,True,True,"(14, 14, 70, 71)",0.004410293000546517,True
-014_1_0028.png,14,14,14,14,True,True,"(13, 17, 95, 86)",0.003876860999298515,True
-015_1_0001.png,15,15,15,15,True,True,"(29, 4, 94, 100)",0.004420168999786256,True
-016_1_0014.png,16,16,16,16,True,True,"(19, 12, 106, 106)",0.004055236000567675,True
-017_1_0017.png,17,17,17,17,True,True,"(16, 12, 81, 80)",0.004469032999622868,True
-023_1_0003.png,23,23,23,23,True,True,"(15, 14, 46, 48)",0.004160676999163115,True
-023_1_0004.png,23,23,23,23,True,True,"(15, 14, 46, 48)",0.005367103000025963,True
-024_1_0016.png,24,24,24,24,True,True,"(42, 21, 207, 201)",0.004218412999762222,True
-024_1_0017.png,24,24,24,24,True,True,"(44, 26, 185, 179)",0.0036686019993794616,True
-026_1_0016.png,26,26,26,26,True,True,"(39, 24, 70, 77)",0.004480170002352679,True
-028_1_0007.png,28,28,28,28,True,True,"(28, 26, 107, 106)",0.004496239998843521,True
-030_1_0002.png,30,30,30,30,True,True,"(31, 26, 181, 174)",0.005119710996950744,True
-030_1_0023.png,30,30,30,30,True,True,"(33, 20, 60, 71)",0.003910260998964077,True
-032_1_0001_1_j.png,32,32,32,32,True,True,"(80, 42, 57, 56)",0.003860503999021603,True
-032_1_0002_1_j.png,32,32,32,32,True,True,"(43, 47, 67, 81)",0.00391887500154553,True
-033_1_0001.png,33,33,33,33,True,True,"(25, 30, 92, 83)",0.004077713998412946,True
-034_1_0002.png,34,34,34,34,True,True,"(23, 23, 57, 48)",0.0039120250003179535,True
-034_1_0003_1_j.png,34,34,34,34,True,True,"(6, 10, 98, 98)",0.003635643002780853,True
-035_1_0002.png,35,35,35,35,True,True,"(19, 16, 53, 48)",0.0037639219990523998,True
-035_1_0003.png,35,35,35,35,True,True,"(23, 17, 55, 48)",0.003719527998327976,True
-035_1_0004.png,35,35,35,35,True,True,"(32, 27, 73, 62)",0.004466263999347575,True
-037_1_0009.png,37,37,37,37,True,True,"(18, 18, 79, 79)",0.00375746200006688,True
-043_1_0021.png,43,43,43,43,True,True,"(47, 50, 126, 112)",0.0036816770007135347,True
-045_1_0004.png,45,45,45,45,True,True,"(0, 0, 147, 143)",0.004438216998096323,True
-045_1_0009.png,45,45,45,45,True,True,"(0, 0, 141, 90)",0.003938912999728927,True
-047_1_0003.png,47,47,47,47,True,True,"(34, 31, 55, 47)",0.003888141000061296,True
-049_1_0010.png,49,49,49,49,True,True,"(0, 8, 104, 90)",0.004985965999367181,True
-050_1_0003.png,50,50,50,50,True,True,"(48, 45, 81, 81)",0.003929869002604391,True
-055_1_0031.png,55,55,55,55,True,True,"(33, 32, 85, 95)",0.0038128999985929113,True
-056_1_0010.png,56,56,56,56,True,True,"(35, 21, 152, 127)",0.0040516970002499875,True
-008_1_0008_1_j.png,8,8,8,8,True,True,"(16, 18, 88, 82)",0.003929067999706604,True
-023_1_0002_1_j.png,23,23,23,23,True,True,"(28, 27, 104, 102)",0.003818355999101186,True
-030_1_0018_1_j.png,30,30,30,30,True,True,"(37, 32, 94, 87)",0.004230749000271317,True
-052_1_0008_1_j.png,52,52,52,52,True,True,"(35, 27, 94, 96)",0.003874418998748297,True
-010_1_0013.png,10,10,10,10,True,True,"(8, 14, 96, 97)",0.003936471999622881,True
-011_1_0019.png,11,11,11,11,True,True,"(43, 28, 118, 118)",0.003955177999159787,True
-023_1_0005.png,23,23,23,23,True,True,"(40, 31, 65, 72)",0.0039513730007456616,True
-028_1_0216.png,28,28,28,28,True,True,"(38, 28, 107, 106)",0.003954171999794198,True
-029_1_0015.png,29,29,29,29,True,True,"(28, 24, 110, 109)",0.003712246998475166,True
-031_1_0020.png,31,31,31,31,True,True,"(41, 0, 188, 223)",0.00407980599993607,True
-036_1_0014.png,36,36,36,36,True,True,"(43, 48, 126, 106)",0.0038395129995478783,True
-036_1_0016.png,36,36,36,36,True,True,"(33, 30, 76, 66)",0.004108191998966504,True
-036_1_0019.png,36,36,36,36,True,True,"(20, 16, 42, 37)",0.0036843230009253602,True
+Filename,Actual Class,Actual Sign,Predicted Class,Predicted Sign,Correct,Segmentation Found (display check),Classification Time (s),Below 2 Seconds
+001_0004.png,1,Speed limit fifteen kilometers per hour,1,Speed limit fifteen kilometers per hour,True,True,0.02570229999946605,True
+002_0036.png,2,Speed limit thirty kilometers per hour,2,Speed limit thirty kilometers per hour,True,True,0.027519899998878827,True
+005_0030.png,5,Speed limit sixty kilometers per hour,5,Speed limit sixty kilometers per hour,True,True,0.024199000001317472,True
+020_0003.png,20,Go straight or right,20,Go straight or right,True,True,0.024914699999499135,True
+020_0004.png,20,Go straight or right,20,Go straight or right,True,True,0.02704999999878055,True
+020_0006.png,20,Go straight or right,20,Go straight or right,True,True,0.02402310000070429,True
+021_0003.png,21,Go straight,21,Go straight,True,True,0.023306099999899743,True
+021_0002_j.png,21,Go straight,21,Go straight,True,True,0.022242700000788318,True
+027_0002.png,27,Roundabout mandatory,27,Roundabout mandatory,True,True,0.020244699999238946,True
+031_0011.png,31,Uturn allowed,31,Uturn allowed,True,True,0.023433100001057028,True
+038_0008.png,38,Dangerous curve to the left,38,Dangerous curve to the left,True,True,0.02477039999939734,True
+042_0002_j.png,42,Slow down,42,Slow down,True,True,0.028083799999876646,True
+046_0005_j.png,46,Watch for ZigZag Curve,46,Watch for ZigZag Curve,True,True,0.023968999999851803,True
+047_0002.png,47,Watch for Trains,47,Watch for Trains,True,True,0.021426200000860263,True
+047_0005.png,47,Watch for Trains,47,Watch for Trains,True,True,0.021824800000104005,True
+020_0002_j.png,20,Go straight or right,20,Go straight or right,True,True,0.022626500000114902,True
+021_0004_j.png,21,Go straight,21,Go straight,True,True,0.019687800000610878,True
+042_0016_j.png,42,Slow down,42,Slow down,True,True,0.023329399999056477,True
+051_0005_j.png,51,Watch for Heavy Vehicle Accidents,51,Watch for Heavy Vehicle Accidents,True,True,0.023728800000753836,True
+057_0003_j.png,57,Stop for check,57,Stop for check,True,True,0.022025100000973907,True
+011_0029.png,11,Don't Go Left,11,Don't Go Left,True,True,0.01835179999943648,True
+013_0013.png,13,Don't Go Right,13,Don't Go Right,True,True,0.020612000000255648,True
+021_0004.png,21,Go straight,21,Go straight,True,True,0.022989400000369642,True
+022_0005.png,22,Go Left,22,Go Left,True,True,0.020182000000204425,True
+027_0010.png,27,Roundabout mandatory,27,Roundabout mandatory,True,True,0.02201760000025388,True
+027_0012.png,27,Roundabout mandatory,27,Roundabout mandatory,True,True,0.020479599999816855,True
+028_0202.png,28,watch out for cars,28,watch out for cars,True,True,0.023174900001322385,True
+037_0019.png,37,Watch for Children crossing,37,Watch for Children crossing,True,True,0.021215900000242982,True
+037_0021.png,37,Watch for Children crossing,37,Watch for Children crossing,True,True,0.020885699999780627,True
+040_0011.png,40,Watch for down steep slope,40,Watch for down steep slope,True,True,0.021937999999863678,True
+048_0004.png,48,Watch for Construction site,48,Watch for Construction site,True,True,0.02014249999956519,True
+000_1_0002.png,0,Speed limit five kilometers per hour,0,Speed limit five kilometers per hour,True,True,0.021193800001128693,True
+000_1_0013.png,0,Speed limit five kilometers per hour,0,Speed limit five kilometers per hour,True,True,0.022708699998474913,True
+000_1_0018.png,0,Speed limit five kilometers per hour,0,Speed limit five kilometers per hour,True,True,0.020793699999558157,True
+000_1_0034.png,0,Speed limit five kilometers per hour,0,Speed limit five kilometers per hour,True,True,0.023048400000334368,True
+001_1_0009.png,1,Speed limit fifteen kilometers per hour,1,Speed limit fifteen kilometers per hour,True,True,0.020177500000500004,True
+002_1_0010.png,2,Speed limit thirty kilometers per hour,2,Speed limit thirty kilometers per hour,True,True,0.022335100000418606,True
+003_1_0034.png,3,Speed limit fourty kilometers per hour,3,Speed limit fourty kilometers per hour,True,True,0.018949900000734488,True
+004_1_0020.png,4,Speed limit fifty kilometers per hour,4,Speed limit fifty kilometers per hour,True,True,0.021080200000142213,True
+005_1_0027.png,5,Speed limit sixty kilometers per hour,5,Speed limit sixty kilometers per hour,True,True,0.018664500001250417,True
+007_1_0006.png,7,Speed limit eighty kilometers per hour,7,Speed limit eighty kilometers per hour,True,True,0.017733299999235896,True
+012_1_0015.png,12,Don't Go Left or Right,12,Don't Go Left or Right,True,True,0.02242339999975229,True
+014_1_0028.png,14,Don't overtake from Left,14,Don't overtake from Left,True,True,0.022386000000551576,True
+015_1_0001.png,15,No U-turn,15,No U-turn,True,True,0.022647699999652104,True
+016_1_0014.png,16,No Car,16,No Car,True,True,0.01868590000049153,True
+017_1_0017.png,17,No horn,17,No horn,True,True,0.01969700000154262,True
+023_1_0003.png,23,Go Left or right,23,Go Left or right,True,True,0.020131299999775365,True
+023_1_0004.png,23,Go Left or right,23,Go Left or right,True,True,0.022096299999248004,True
+024_1_0016.png,24,Go Right,24,Go Right,True,True,0.02190630000040983,True
+024_1_0017.png,24,Go Right,24,Go Right,True,True,0.020849299999099458,True
+026_1_0016.png,26,keep Right,26,keep Right,True,True,0.02344000000084634,True
+028_1_0007.png,28,watch out for cars,28,watch out for cars,True,True,0.02278140000089479,True
+030_1_0002.png,30,Non-motor vehicle allowed,30,Non-motor vehicle allowed,True,True,0.018074800000249525,True
+030_1_0023.png,30,Non-motor vehicle allowed,30,Non-motor vehicle allowed,True,True,0.021846000001460197,True
+032_1_0001_1_j.png,32,Watch for Road Divider,32,Watch for Road Divider,True,True,0.023786699999618577,True
+032_1_0002_1_j.png,32,Watch for Road Divider,32,Watch for Road Divider,True,True,0.022758399998565437,True
+033_1_0001.png,33,Watch for Traffic signals,33,Watch for Traffic signals,True,True,0.023692300001130207,True
+034_1_0002.png,34,Danger Ahead,34,Danger Ahead,True,True,0.02421899999899324,True
+034_1_0003_1_j.png,34,Danger Ahead,34,Danger Ahead,True,True,0.021856400000615395,True
+035_1_0002.png,35,Watch for Zebra Crossing,35,Watch for Zebra Crossing,True,True,0.02092579999953159,True
+035_1_0003.png,35,Watch for Zebra Crossing,35,Watch for Zebra Crossing,True,True,0.020718499999929918,True
+035_1_0004.png,35,Watch for Zebra Crossing,35,Watch for Zebra Crossing,True,True,0.020174100000076578,True
+037_1_0009.png,37,Watch for Children crossing,37,Watch for Children crossing,True,True,0.02188879999994242,True
+043_1_0021.png,43,Go right or straight,43,Go right or straight,True,True,0.020392700000229524,True
+045_1_0004.png,45,Near the village,45,Near the village,True,True,0.022611700000197743,True
+045_1_0009.png,45,Near the village,45,Near the village,True,True,0.020690899998953682,True
+047_1_0003.png,47,Watch for Trains,47,Watch for Trains,True,True,0.021138500000233762,True
+049_1_0010.png,49,Watch for consecutive turnings,49,Watch for consecutive turnings,True,True,0.020441599999685423,True
+050_1_0003.png,50,Watch for fences,50,Watch for fences,True,True,0.02411460000075749,True
+055_1_0031.png,55,No entry,55,No entry,True,True,0.021554099999775644,True
+056_1_0010.png,56,Slow down to yield,56,Slow down to yield,True,True,0.01917909999974654,True
+008_1_0008_1_j.png,8,Don't Go straight or left,8,Don't Go straight or left,True,True,0.021384100000432227,True
+023_1_0002_1_j.png,23,Go Left or right,23,Go Left or right,True,True,0.016036999999414547,True
+030_1_0018_1_j.png,30,Non-motor vehicle allowed,30,Non-motor vehicle allowed,True,True,0.021181000000069616,True
+052_1_0008_1_j.png,52,Stop to yield,52,Stop to yield,True,True,0.02321520000077726,True
+010_1_0013.png,10,Don't Go straight,10,Don't Go straight,True,True,0.020511200000328245,True
+011_1_0019.png,11,Don't Go Left,11,Don't Go Left,True,True,0.02040879999913159,True
+023_1_0005.png,23,Go Left or right,23,Go Left or right,True,True,0.024681500000951928,True
+028_1_0216.png,28,watch out for cars,28,watch out for cars,True,True,0.02216489999955229,True
+029_1_0015.png,29,Horn,29,Horn,True,True,0.01779970000097819,True
+031_1_0020.png,31,Uturn allowed,31,Uturn allowed,True,True,0.020281000000977656,True
+036_1_0014.png,36,Watch for non-motor vehicle,36,Watch for non-motor vehicle,True,True,0.023397599999952945,True
+036_1_0016.png,36,Watch for non-motor vehicle,36,Watch for non-motor vehicle,True,True,0.018069399999149027,True
+036_1_0019.png,36,Watch for non-motor vehicle,36,Watch for non-motor vehicle,True,True,0.016518399999768008,True

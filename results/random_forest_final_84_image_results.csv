@@ -1,0 +1,85 @@
+Filename,Actual Class,Actual Sign,Predicted Class,Predicted Sign,Correct,Segmentation Found (display check),Classification Time (s),Below 2 Seconds
+001_0004.png,1,Speed limit fifteen kilometers per hour,1,Speed limit fifteen kilometers per hour,True,True,0.16091620000042894,True
+002_0036.png,2,Speed limit thirty kilometers per hour,2,Speed limit thirty kilometers per hour,True,True,0.1310481999989861,True
+005_0030.png,5,Speed limit sixty kilometers per hour,5,Speed limit sixty kilometers per hour,True,True,0.1352783999991516,True
+020_0003.png,20,Go straight or right,20,Go straight or right,True,True,0.1342492999992828,True
+020_0004.png,20,Go straight or right,20,Go straight or right,True,True,0.1186161000005086,True
+020_0006.png,20,Go straight or right,20,Go straight or right,True,True,0.13773789999868313,True
+021_0003.png,21,Go straight,21,Go straight,True,True,0.17115709999961837,True
+021_0002_j.png,21,Go straight,21,Go straight,True,True,0.14332149999972899,True
+027_0002.png,27,Roundabout mandatory,27,Roundabout mandatory,True,True,0.11504679999961809,True
+031_0011.png,31,Uturn allowed,31,Uturn allowed,True,True,0.13796759999968344,True
+038_0008.png,38,Dangerous curve to the left,38,Dangerous curve to the left,True,True,0.1262115999998059,True
+042_0002_j.png,42,Slow down,42,Slow down,True,True,0.11281880000024103,True
+046_0005_j.png,46,Watch for ZigZag Curve,46,Watch for ZigZag Curve,True,True,0.12164979999943171,True
+047_0002.png,47,Watch for Trains,47,Watch for Trains,True,True,0.10680260000117414,True
+047_0005.png,47,Watch for Trains,47,Watch for Trains,True,True,0.10879080000086105,True
+020_0002_j.png,20,Go straight or right,54,No stopping,False,True,0.10948330000064743,True
+021_0004_j.png,21,Go straight,21,Go straight,True,True,0.13703259999965667,True
+042_0016_j.png,42,Slow down,42,Slow down,True,True,0.13205219999872497,True
+051_0005_j.png,51,Watch for Heavy Vehicle Accidents,51,Watch for Heavy Vehicle Accidents,True,True,0.11458739999943646,True
+057_0003_j.png,57,Stop for check,57,Stop for check,True,True,0.13255340000068827,True
+011_0029.png,11,Don't Go Left,11,Don't Go Left,True,True,0.12044179999975313,True
+013_0013.png,13,Don't Go Right,13,Don't Go Right,True,True,0.12791819999984,True
+021_0004.png,21,Go straight,21,Go straight,True,True,0.12375470000006317,True
+022_0005.png,22,Go Left,22,Go Left,True,True,0.147248799999943,True
+027_0010.png,27,Roundabout mandatory,27,Roundabout mandatory,True,True,0.13891399999920395,True
+027_0012.png,27,Roundabout mandatory,27,Roundabout mandatory,True,True,0.13769050000155403,True
+028_0202.png,28,watch out for cars,28,watch out for cars,True,True,0.14779020000059973,True
+037_0019.png,37,Watch for Children crossing,37,Watch for Children crossing,True,True,0.16158859999995911,True
+037_0021.png,37,Watch for Children crossing,37,Watch for Children crossing,True,True,0.18627079999896523,True
+040_0011.png,40,Watch for down steep slope,40,Watch for down steep slope,True,True,0.23064789999989443,True
+048_0004.png,48,Watch for Construction site,48,Watch for Construction site,True,True,0.2758061999993515,True
+000_1_0002.png,0,Speed limit five kilometers per hour,0,Speed limit five kilometers per hour,True,True,0.21347360000072513,True
+000_1_0013.png,0,Speed limit five kilometers per hour,0,Speed limit five kilometers per hour,True,True,0.2939799999985553,True
+000_1_0018.png,0,Speed limit five kilometers per hour,0,Speed limit five kilometers per hour,True,True,0.2789472000004025,True
+000_1_0034.png,0,Speed limit five kilometers per hour,0,Speed limit five kilometers per hour,True,True,0.3020128999996814,True
+001_1_0009.png,1,Speed limit fifteen kilometers per hour,1,Speed limit fifteen kilometers per hour,True,True,0.3071469000005891,True
+002_1_0010.png,2,Speed limit thirty kilometers per hour,2,Speed limit thirty kilometers per hour,True,True,0.30301049999980023,True
+003_1_0034.png,3,Speed limit fourty kilometers per hour,3,Speed limit fourty kilometers per hour,True,True,0.2992954999990616,True
+004_1_0020.png,4,Speed limit fifty kilometers per hour,4,Speed limit fifty kilometers per hour,True,True,0.2789382000009937,True
+005_1_0027.png,5,Speed limit sixty kilometers per hour,5,Speed limit sixty kilometers per hour,True,True,0.28721390000100655,True
+007_1_0006.png,7,Speed limit eighty kilometers per hour,7,Speed limit eighty kilometers per hour,True,True,0.33651819999977306,True
+012_1_0015.png,12,Don't Go Left or Right,12,Don't Go Left or Right,True,True,0.31825059999937366,True
+014_1_0028.png,14,Don't overtake from Left,14,Don't overtake from Left,True,True,0.29441529999894556,True
+015_1_0001.png,15,No U-turn,15,No U-turn,True,True,0.35628519999954733,True
+016_1_0014.png,16,No Car,16,No Car,True,True,0.39848429999983637,True
+017_1_0017.png,17,No horn,17,No horn,True,True,0.37786210000012943,True
+023_1_0003.png,23,Go Left or right,23,Go Left or right,True,True,0.3795501000004151,True
+023_1_0004.png,23,Go Left or right,23,Go Left or right,True,True,0.28863380000075267,True
+024_1_0016.png,24,Go Right,24,Go Right,True,True,0.23316950000116776,True
+024_1_0017.png,24,Go Right,24,Go Right,True,True,0.2622830000000249,True
+026_1_0016.png,26,keep Right,26,keep Right,True,True,0.32595989999936137,True
+028_1_0007.png,28,watch out for cars,28,watch out for cars,True,True,0.36869520000072953,True
+030_1_0002.png,30,Non-motor vehicle allowed,30,Non-motor vehicle allowed,True,True,0.3241551999999501,True
+030_1_0023.png,30,Non-motor vehicle allowed,30,Non-motor vehicle allowed,True,True,0.2419914999991306,True
+032_1_0001_1_j.png,32,Watch for Road Divider,32,Watch for Road Divider,True,True,0.38148459999865736,True
+032_1_0002_1_j.png,32,Watch for Road Divider,32,Watch for Road Divider,True,True,0.35652160000063304,True
+033_1_0001.png,33,Watch for Traffic signals,33,Watch for Traffic signals,True,True,0.27030960000047344,True
+034_1_0002.png,34,Danger Ahead,34,Danger Ahead,True,True,0.30427120000058494,True
+034_1_0003_1_j.png,34,Danger Ahead,34,Danger Ahead,True,True,0.3172230000000127,True
+035_1_0002.png,35,Watch for Zebra Crossing,35,Watch for Zebra Crossing,True,True,0.3145222000002832,True
+035_1_0003.png,35,Watch for Zebra Crossing,35,Watch for Zebra Crossing,True,True,0.28931899999952293,True
+035_1_0004.png,35,Watch for Zebra Crossing,35,Watch for Zebra Crossing,True,True,0.3225289999991219,True
+037_1_0009.png,37,Watch for Children crossing,37,Watch for Children crossing,True,True,0.29322700000011537,True
+043_1_0021.png,43,Go right or straight,43,Go right or straight,True,True,0.3766729999988456,True
+045_1_0004.png,45,Near the village,45,Near the village,True,True,0.33675809999840567,True
+045_1_0009.png,45,Near the village,45,Near the village,True,True,0.35500669999964884,True
+047_1_0003.png,47,Watch for Trains,47,Watch for Trains,True,True,0.3379509999995207,True
+049_1_0010.png,49,Watch for consecutive turnings,49,Watch for consecutive turnings,True,True,0.39483839999957127,True
+050_1_0003.png,50,Watch for fences,50,Watch for fences,True,True,0.318405600000915,True
+055_1_0031.png,55,No entry,55,No entry,True,True,0.3140203000002657,True
+056_1_0010.png,56,Slow down to yield,56,Slow down to yield,True,True,0.29619069999898784,True
+008_1_0008_1_j.png,8,Don't Go straight or left,8,Don't Go straight or left,True,True,0.26591329999973823,True
+023_1_0002_1_j.png,23,Go Left or right,23,Go Left or right,True,True,0.2923880000016652,True
+030_1_0018_1_j.png,30,Non-motor vehicle allowed,30,Non-motor vehicle allowed,True,True,0.30185140000139654,True
+052_1_0008_1_j.png,52,Stop to yield,52,Stop to yield,True,True,0.2718800000002375,True
+010_1_0013.png,10,Don't Go straight,10,Don't Go straight,True,True,0.25866580000001704,True
+011_1_0019.png,11,Don't Go Left,11,Don't Go Left,True,True,0.2226252000000386,True
+023_1_0005.png,23,Go Left or right,23,Go Left or right,True,True,0.3146904999994149,True
+028_1_0216.png,28,watch out for cars,28,watch out for cars,True,True,0.24541499999941152,True
+029_1_0015.png,29,Horn,29,Horn,True,True,0.23564799999985553,True
+031_1_0020.png,31,Uturn allowed,31,Uturn allowed,True,True,0.22566709999955492,True
+036_1_0014.png,36,Watch for non-motor vehicle,36,Watch for non-motor vehicle,True,True,0.213739999999234,True
+036_1_0016.png,36,Watch for non-motor vehicle,36,Watch for non-motor vehicle,True,True,0.22294610000062676,True
+036_1_0019.png,36,Watch for non-motor vehicle,36,Watch for non-motor vehicle,True,True,0.32183940000140865,True
