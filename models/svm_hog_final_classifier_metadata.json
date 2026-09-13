@@ -1,8 +1,8 @@
 {
   "classifier": "SVM",
   "parameters": {
-    "C": 10,
-    "class_weight": null,
+    "C": 30,
+    "class_weight": "balanced",
     "gamma": 0.0001,
     "kernel": "rbf"
   },
@@ -13,11 +13,21 @@
     "minimum_development_class_count": 2,
     "shuffle": true,
     "random_state": 42,
-    "refit_metric": "macro_f1",
+    "refit_strategy": "custom hierarchical callable",
+    "selection_hierarchy": [
+      "highest mean CV Macro F1",
+      "highest mean CV accuracy if Macro F1 is tied",
+      "lowest mean CV scoring time if both are tied"
+    ],
+    "primary_metric": "macro_f1",
+    "secondary_metric": "accuracy",
+    "tertiary_metric": "mean_score_time",
     "best_mean_macro_f1": 0.9441882194539047,
     "best_std_macro_f1": 0.005050069946575975,
     "best_mean_accuracy": 0.9485055431416645,
-    "best_std_accuracy": 0.0023419144854541774
+    "best_std_accuracy": 0.0023419144854541774,
+    "best_mean_score_time": 82.42834937572479,
+    "best_mean_fit_time": 66.31023693084717
   },
   "hog_configuration": {
     "feature_dimension": 1764,

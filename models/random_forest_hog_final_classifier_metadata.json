@@ -14,11 +14,21 @@
     "minimum_development_class_count": 2,
     "shuffle": true,
     "random_state": 42,
-    "refit_metric": "macro_f1",
+    "refit_strategy": "custom hierarchical callable",
+    "selection_hierarchy": [
+      "highest mean CV Macro F1",
+      "highest mean CV accuracy if Macro F1 is tied",
+      "lowest mean CV scoring time if both are tied"
+    ],
+    "primary_metric": "macro_f1",
+    "secondary_metric": "accuracy",
+    "tertiary_metric": "mean_score_time",
     "best_mean_macro_f1": 0.9208456207972662,
     "best_std_macro_f1": 0.004667392074980015,
     "best_mean_accuracy": 0.9410884926821907,
-    "best_std_accuracy": 0.0034030327415380257
+    "best_std_accuracy": 0.0034030327415380257,
+    "best_mean_score_time": 0.7553457021713257,
+    "best_mean_fit_time": 8.145788073539734
   },
   "hog_configuration": {
     "feature_dimension": 1764,
