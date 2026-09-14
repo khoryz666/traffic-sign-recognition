@@ -1,0 +1,2 @@
+Feature,Classifier,Number of Images,Repeats per Image,Measured Runs,Successful Runs,Failed Runs,Time Limit (s),Mean End-to-End Time (s),Median End-to-End Time (s),95th Percentile Time (s),Maximum End-to-End Time (s),Runs Within Limit,Runs Within Limit (%),Pipeline Accuracy,All HOG Vectors Match Saved Features,Overall Verdict
+HOG,Logistic Regression,84,3,252,252,0,2.0,0.020580733333998878,0.01847539999289438,0.037375175008492065,0.05059510000864975,252,100.0,1.0,True,PASS
