@@ -1,6 +1,6 @@
 # Traffic Sign Recognition
 
-A classical computer-vision pipeline (no deep learning) that segments Chinese traffic signs by color, extracts hand-crafted HOG and HSV features, and classifies them with KNN, logistic regression and SVM.
+A classical computer-vision pipeline (no deep learning) that segments Chinese traffic signs by color, extracts hand-crafted HOG and HSV features, and classifies them with KNN, logistic regression, SVM and random forest.
 
 ## 1. Get Started
 
@@ -22,10 +22,10 @@ This provisions Python 3.13 via Nix, then installs everything listed in `require
 
 ### Run the entire pipeline
 
-One command, run from the repo root with the direnv environment loaded, executes all nine notebooks in order (00 → 03) and stops at the first failure:
+One command, run from the repo root with the direnv environment loaded, executes all ten notebooks in order (00 → 03) and stops at the first failure:
 
 ```bash
-for f in 00-dataset/01_download_chinese_traffic_signs.ipynb 00-dataset/02_clean_annotations.ipynb 01-roi-segmentation/01_color_segmentation.ipynb 01-roi-segmentation/02_shape_detection.ipynb 02-feature-extraction/01_hog_features_chinese.ipynb 02-feature-extraction/02_hsv_color_histogram_chinese.ipynb 03-classifier/01_knn_classifier.ipynb 03-classifier/02_logistic_regression_classifier.ipynb 03-classifier/03_svm_classifier.ipynb; do jupyter nbconvert --to notebook --execute --inplace "$f" || break; done
+for f in 00-dataset/01_download_chinese_traffic_signs.ipynb 00-dataset/02_clean_annotations.ipynb 01-roi-segmentation/01_color_segmentation.ipynb 01-roi-segmentation/02_shape_detection.ipynb 02-feature-extraction/01_hog_features_chinese.ipynb 02-feature-extraction/02_hsv_color_histogram_chinese.ipynb 03-classifier/01_knn_classifier.ipynb 03-classifier/02_logistic_regression_classifier.ipynb 03-classifier/03_svm_classifier.ipynb 03-classifier/04_random_forest_classifier.ipynb; do jupyter nbconvert --to notebook --execute --inplace "$f" || break; done
 ```
 
 ### Run notebooks interactively
@@ -50,7 +50,7 @@ Source diagram: [`docs/system_design.drawio`](docs/system_design.drawio) (open a
 | :--- | :--- |
 | [@khoryz666](https://github.com/khoryz666) | Red color segmentation, HOG feature vectors |
 | [@sovaleow](https://github.com/sovaleow) | Shape segmentation/classification, HSV color histogram |
-| [@kahyikang](https://github.com/kahyikang) | Yellow color segmentation, SVM classifier |
+| [@kahyikang](https://github.com/kahyikang) | Yellow color segmentation, SVM and random forest classifiers, multi-colour contour selection |
 | [@Ykeattan](https://github.com/Ykeattan) | Blue color segmentation, KNN and logistic regression classifiers |
 
 ## 3. Results Overview
@@ -97,6 +97,7 @@ Each classifier is tuned on the training split, evaluated on a stratified 20% te
 | :--- | :--- | :-: | :-: | :-: | :-: |
 | KNN | k=1, euclidean, uniform | 0.9881 | 0.9874 | 1.0000 | 1.0000 |
 | Logistic Regression | C=0.1 | 0.9898 | 0.9933 | 1.0000 | 1.0000 |
-| SVM | rbf, C=30, gamma=0.0001, balanced | 0.9881 | 0.9893 | 1.0000 | 1.0000 |
+| SVM | rbf, C=30, gamma=0.0001, balanced | 0.9881 | 0.9552 | 1.0000 | 1.0000 |
+| Random Forest | n_estimators=400, max_features=log2, balanced_subsample | 0.9873 | 0.9514 | 0.9881 | 0.9970 |
 
 **What this repo aims to show:** that a fully classical computer-vision pipeline — no deep learning, no pretrained models — can recognize Chinese traffic signs with over 97% accuracy on both an internal test split and a completely held-out blind test set, using only color/shape-based segmentation and hand-crafted HOG/HSV features.
