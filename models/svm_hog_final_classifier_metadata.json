@@ -26,8 +26,8 @@
     "best_std_macro_f1": 0.005050069946575975,
     "best_mean_accuracy": 0.9485055431416645,
     "best_std_accuracy": 0.0023419144854541774,
-    "best_mean_score_time": 71.41140067577362,
-    "best_mean_fit_time": 55.10774528980255
+    "best_mean_score_time": 11.638814687728882,
+    "best_mean_fit_time": 25.545417428016663
   },
   "hog_configuration": {
     "feature_dimension": 1764,
@@ -73,5 +73,5 @@
     "Macro Recall": 1.0,
     "Macro F1": 1.0
   },
-  "assignment_hog_source": "C:\\Users\\User\\OneDrive\\Desktop\\traffic-sign-recognition\\features\\assignment1_test_hog_features.npz"
+  "assignment_hog_source": "/home/hongye/projects/traffic-sign-recognition/features/assignment1_test_hog_features.npz"
 }

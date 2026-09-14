@@ -1,9 +1,9 @@
 {
   "classifier": "Random Forest",
   "parameters": {
-    "class_weight": "balanced_subsample",
+    "class_weight": null,
     "max_depth": null,
-    "max_features": "log2",
+    "max_features": "sqrt",
     "min_samples_split": 2,
     "n_estimators": 400
   },
@@ -23,12 +23,12 @@
     "primary_metric": "macro_f1",
     "secondary_metric": "accuracy",
     "tertiary_metric": "mean_score_time",
-    "best_mean_macro_f1": 0.9208456207972662,
-    "best_std_macro_f1": 0.004667392074980015,
-    "best_mean_accuracy": 0.9410884926821907,
-    "best_std_accuracy": 0.0034030327415380257,
-    "best_mean_score_time": 1.0415149927139282,
-    "best_mean_fit_time": 7.04203724861145
+    "best_mean_macro_f1": 0.9205647796112518,
+    "best_std_macro_f1": 0.0013176649271929852,
+    "best_mean_accuracy": 0.9423601281784152,
+    "best_std_accuracy": 0.0025551260588729807,
+    "best_mean_score_time": 0.44164609909057617,
+    "best_mean_fit_time": 2.865143060684204
   },
   "hog_configuration": {
     "feature_dimension": 1764,
@@ -56,23 +56,23 @@
     "failed_extraction": 6
   },
   "public_test_classification_only_metrics": {
-    "Accuracy": 0.9872557349192863,
-    "Macro Precision": 0.9602327685925689,
-    "Macro Recall": 0.9458947167651283,
-    "Macro F1": 0.9513531182966901
+    "Accuracy": 0.9881053525913339,
+    "Macro Precision": 0.9589171095689992,
+    "Macro Recall": 0.9516418432019099,
+    "Macro F1": 0.9541977548455025
   },
   "public_test_end_to_end_metrics": {
-    "Accuracy": 0.9822485207100592,
-    "Macro Precision": 0.9602327685925689,
-    "Macro Recall": 0.9408036873276674,
-    "Macro F1": 0.9486942308248266
+    "Accuracy": 0.9830938292476754,
+    "Macro Precision": 0.9589171095689992,
+    "Macro Recall": 0.946550813764449,
+    "Macro F1": 0.9515347471070008
   },
   "assignment_samples": 84,
   "assignment_metrics": {
-    "Accuracy": 0.9880952380952381,
+    "Accuracy": 1.0,
     "Macro Precision": 1.0,
-    "Macro Recall": 0.9947916666666666,
-    "Macro F1": 0.9970238095238096
+    "Macro Recall": 1.0,
+    "Macro F1": 1.0
   },
-  "assignment_hog_source": "C:\\Users\\User\\OneDrive\\Desktop\\traffic-sign-recognition\\features\\assignment1_test_hog_features.npz"
+  "assignment_hog_source": "/home/hongye/projects/traffic-sign-recognition/features/assignment1_test_hog_features.npz"
 }
