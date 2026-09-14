@@ -1,110 +1,108 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0">
   <diagram id="diagram_1" name="System Design">
-    <mxGraphModel dx="1447" dy="687" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1000" math="0" shadow="0">
+    <mxGraphModel dx="1407" dy="849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <mxCell id="start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;arcSize=50;" value="Start" vertex="1">
-          <mxGeometry x="330" y="30" width="200" height="40" as="geometry" />
+        <mxCell id="start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;arcSize=50;fontSize=13;" value="Start" vertex="1">
+          <mxGeometry height="50" width="220" x="340" y="20" as="geometry" />
         </mxCell>
-
-        <mxCell id="stage00" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" value="&lt;b&gt;00 — Dataset&lt;/b&gt;&lt;br&gt;Download Chinese Traffic Signs (Kaggle) + clean annotations (drop orphan / duplicate rows)" vertex="1">
-          <mxGeometry x="300" y="110" width="260" height="70" as="geometry" />
+        <mxCell id="end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;arcSize=50;fontSize=13;" value="End" vertex="1">
+          <mxGeometry height="50" width="220" x="340" y="785" as="geometry" />
         </mxCell>
-
-        <mxCell id="stage01" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" value="&lt;b&gt;01 — ROI Segmentation&lt;/b&gt;&lt;br&gt;Red / blue / yellow color segmentation + shape classification (demo)" vertex="1">
-          <mxGeometry x="300" y="220" width="260" height="70" as="geometry" />
+        <mxCell id="phase1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;Phase 1 — Data Collection &amp;amp; Cleaning&lt;/b&gt;&lt;br&gt;Download Chinese Traffic Signs Dataset and clean annotations.csv (drop orphan &amp;amp; duplicate rows) - no image files moved or removed" vertex="1">
+          <mxGeometry height="95" width="420" x="240" y="110" as="geometry" />
         </mxCell>
-
-        <mxCell id="pipeline_pkg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;dashed=1;" value="&lt;b&gt;pipeline/ package&lt;/b&gt;&lt;br&gt;segmentation, preprocessing, features, annotations, labels, paths&lt;br&gt;&lt;i&gt;(shared code, imported by 01 / 02 / 03)&lt;/i&gt;" vertex="1">
-          <mxGeometry x="620" y="200" width="240" height="90" as="geometry" />
+        <mxCell id="phase2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;Phase 2 — Feature Extraction&lt;/b&gt;&lt;br&gt;ROI segmentation (colour + shape), then extract HOG &amp;amp; HSV histogram feature vectors" vertex="1">
+          <mxGeometry height="95" width="420" x="240" y="245" as="geometry" />
         </mxCell>
-
-        <mxCell id="stage02" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="&lt;b&gt;02 — Feature Extraction&lt;/b&gt;&lt;br&gt;Shared ROI preprocessing (segment → crop → 256×256)" vertex="1">
-          <mxGeometry x="300" y="330" width="260" height="60" as="geometry" />
+        <mxCell id="phase3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;Phase 3 — Model Development&lt;/b&gt;&lt;br&gt;Train KNN, Logistic Regression, SVM, and Random Forest classifiers on HOG features" vertex="1">
+          <mxGeometry height="95" width="420" x="240" y="380" as="geometry" />
         </mxCell>
-
-        <mxCell id="hog" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="HOG features&lt;br&gt;(1764-d)" vertex="1">
-          <mxGeometry x="180" y="430" width="180" height="50" as="geometry" />
+        <mxCell id="phase4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;Phase 4 — Model Evaluation&lt;/b&gt;&lt;br&gt;Accuracy, Precision, Recall, F1-score, Confusion Matrix" vertex="1">
+          <mxGeometry height="95" width="420" x="240" y="515" as="geometry" />
         </mxCell>
-
-        <mxCell id="hsv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="HSV color histogram&lt;br&gt;(960-d)" vertex="1">
-          <mxGeometry x="420" y="430" width="180" height="50" as="geometry" />
+        <mxCell id="phase5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;Phase 5 — Key Findings&lt;/b&gt;&lt;br&gt;Conclusion, Limitations &amp;amp; Future Work" vertex="1">
+          <mxGeometry height="95" width="420" x="240" y="650" as="geometry" />
         </mxCell>
-
-        <mxCell id="stage03" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" value="&lt;b&gt;03 — Classifiers&lt;/b&gt;&lt;br&gt;Train on the training pool (held-out 84 images excluded by filtering, never moved)" vertex="1">
-          <mxGeometry x="300" y="530" width="260" height="60" as="geometry" />
+        <mxCell id="in1" parent="1" style="text;html=1;align=right;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="KaggleHub&lt;br&gt;(Kaggle API)" vertex="1">
+          <mxGeometry height="40" width="190" x="10" y="137" as="geometry" />
         </mxCell>
-
-        <mxCell id="knn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="KNN" vertex="1">
-          <mxGeometry x="140" y="630" width="150" height="45" as="geometry" />
+        <mxCell id="in2" parent="1" style="text;html=1;align=right;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="Clean Chinese Traffic&lt;br&gt;Sign Dataset" vertex="1">
+          <mxGeometry height="40" width="190" x="10" y="272" as="geometry" />
         </mxCell>
-
-        <mxCell id="lr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="Logistic Regression" vertex="1">
-          <mxGeometry x="365" y="630" width="150" height="45" as="geometry" />
+        <mxCell id="in3" parent="1" style="text;html=1;align=right;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="HOG Feature Vectors&lt;br&gt;(selected representation)" vertex="1">
+          <mxGeometry height="40" width="190" x="10" y="407" as="geometry" />
         </mxCell>
-
-        <mxCell id="svm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="SVM" vertex="1">
-          <mxGeometry x="590" y="630" width="150" height="45" as="geometry" />
+        <mxCell id="in4" parent="1" style="text;html=1;align=right;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="Public Test Set,&lt;br&gt;84 Assignment Images" vertex="1">
+          <mxGeometry height="40" width="190" x="10" y="542" as="geometry" />
         </mxCell>
-
-        <mxCell id="end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=13;" value="&lt;b&gt;Evaluation&lt;/b&gt;&lt;br&gt;Accuracy / Precision / Recall / F1 on the held-out 56 assignment images&lt;br&gt;+ saved model, metrics and result tables" vertex="1">
-          <mxGeometry x="300" y="730" width="260" height="70" as="geometry" />
+        <mxCell id="in5" parent="1" style="text;html=1;align=right;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="Evaluation Metrics" vertex="1">
+          <mxGeometry height="40" width="190" x="10" y="677" as="geometry" />
         </mxCell>
-
-        <!-- Edges: main flow -->
-        <mxCell id="e_start_00" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="start" target="stage00">
+        <mxCell id="out1" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="Clean Chinese Traffic&lt;br&gt;Sign Dataset" vertex="1">
+          <mxGeometry height="40" width="190" x="700" y="137" as="geometry" />
+        </mxCell>
+        <mxCell id="out2" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="Extracted HOG &amp;amp; HSV&lt;br&gt;Features (.npz)" vertex="1">
+          <mxGeometry height="40" width="190" x="700" y="272" as="geometry" />
+        </mxCell>
+        <mxCell id="out3" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="Trained KNN, LR,&lt;br&gt;SVM, Random Forest Models" vertex="1">
+          <mxGeometry height="40" width="190" x="700" y="407" as="geometry" />
+        </mxCell>
+        <mxCell id="out4" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="Performance Scores" vertex="1">
+          <mxGeometry height="40" width="190" x="700" y="542" as="geometry" />
+        </mxCell>
+        <mxCell id="out5" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=2;fontSize=11;fontColor=#333333;" value="Final Project Report" vertex="1">
+          <mxGeometry height="40" width="190" x="700" y="677" as="geometry" />
+        </mxCell>
+        <mxCell id="e_start_p1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" target="phase1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_00_01" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="stage00" target="stage01">
+        <mxCell id="e_p1_p2" edge="1" parent="1" source="phase1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" target="phase2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_01_02" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="stage01" target="stage02">
+        <mxCell id="e_p2_p3" edge="1" parent="1" source="phase2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" target="phase3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_02_hog" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="stage02" target="hog">
+        <mxCell id="e_p3_p4" edge="1" parent="1" source="phase3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" target="phase4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_02_hsv" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="stage02" target="hsv">
+        <mxCell id="e_p4_p5" edge="1" parent="1" source="phase4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" target="phase5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_hog_03" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="hog" target="stage03">
+        <mxCell id="e_p5_end" edge="1" parent="1" source="phase5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" target="end">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_hsv_03" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="hsv" target="stage03">
+        <mxCell id="e_in1" edge="1" parent="1" source="in1" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="phase1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_03_knn" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="stage03" target="knn">
+        <mxCell id="e_out1" edge="1" parent="1" source="phase1" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="out1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_03_lr" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="stage03" target="lr">
+        <mxCell id="e_in2" edge="1" parent="1" source="in2" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="phase2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_03_svm" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="stage03" target="svm">
+        <mxCell id="e_out2" edge="1" parent="1" source="phase2" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="out2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_knn_end" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="knn" target="end">
+        <mxCell id="e_in3" edge="1" parent="1" source="in3" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="phase3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_lr_end" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="lr" target="end">
+        <mxCell id="e_out3" edge="1" parent="1" source="phase3" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="out3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_svm_end" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="svm" target="end">
+        <mxCell id="e_in4" edge="1" parent="1" source="in4" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="phase4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Edges: pipeline/ package used by (dashed, no arrowhead needed conceptually but keep consistent) -->
-        <mxCell id="e_pkg_01" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1;strokeColor=#d6b656;dashed=1;endArrow=none;startArrow=none;" edge="1" parent="1" source="pipeline_pkg" target="stage01">
+        <mxCell id="e_out4" edge="1" parent="1" source="phase4" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="out4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_pkg_02" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1;strokeColor=#d6b656;dashed=1;endArrow=none;startArrow=none;" edge="1" parent="1" source="pipeline_pkg" target="stage02">
+        <mxCell id="e_in5" edge="1" parent="1" source="in5" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="phase5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e_pkg_03" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=1;strokeColor=#d6b656;dashed=1;endArrow=none;startArrow=none;" edge="1" parent="1" source="pipeline_pkg" target="stage03">
+        <mxCell id="e_out5" edge="1" parent="1" source="phase5" style="edgeStyle=none;html=1;dashed=1;strokeColor=#999999;endArrow=block;endFill=1;startArrow=none;" target="out5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
       </root>
     </mxGraphModel>
   </diagram>
