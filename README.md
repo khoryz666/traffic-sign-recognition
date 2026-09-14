@@ -96,7 +96,7 @@ Each classifier is tuned on the training split, evaluated on a stratified 20% te
 | Classifier | Best parameters | Test accuracy | Test macro F1 | Held-out accuracy | Held-out macro F1 |
 | :--- | :--- | :-: | :-: | :-: | :-: |
 | KNN | k=1, euclidean, uniform | 0.9881 | 0.9874 | 1.0000 | 1.0000 |
-| Logistic Regression | C=0.1 | 0.9898 | 0.9933 | 1.0000 | 1.0000 |
+| Logistic Regression | C=0.5 | 0.9898 | 0.9933 | 1.0000 | 1.0000 |
 | SVM | rbf, C=30, gamma=0.0001, balanced | 0.9881 | 0.9552 | 1.0000 | 1.0000 |
 | Random Forest | n_estimators=400, max_features=log2, balanced_subsample | 0.9873 | 0.9514 | 0.9881 | 0.9970 |
 
